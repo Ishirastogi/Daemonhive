@@ -71,7 +71,7 @@ export default function ContactPage() {
                     <div>
                       <div className="text-sm font-medium text-foreground">Office</div>
                       <p className="text-sm text-muted-foreground">
-                        Bengaluru, Karnataka, India
+                      Moradabad, India
                       </p>
                     </div>
                   </div>
@@ -164,12 +164,12 @@ export default function ContactPage() {
                           className="w-full rounded-md border border-border bg-secondary px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                         >
                           <option value="">Select a service</option>
-                          <option value="software">Custom Software Development</option>
-                          <option value="apps">App Development</option>
-                          <option value="cloud">Cloud Integration</option>
-                          <option value="ai">AI & Machine Learning</option>
-                          <option value="data">Data Engineering</option>
-                          <option value="devops">Cybersecurity & DevOps</option>
+                          <option value="software">Product Engineering</option>
+                          <option value="apps">Custom Web Applications</option>
+                          <option value="cloud">Cloud Infrastructure & Deployment</option>
+                          <option value="ai">API & Backend Systems</option>
+                          <option value="data">Performance & Scalability Optimization</option>
+                          <option value="devops">Security & Reliability</option>
                         </select>
                       </div>
                       <div>

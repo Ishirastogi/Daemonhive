@@ -182,7 +182,7 @@ export function HeroSection() {
               }`}
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-              Building the Future of Software
+              Engineering Scalable Digital Systems
             </div>
             <h1
               className={`font-display text-5xl font-bold leading-tight tracking-tight text-foreground transition-all duration-1000 delay-150 md:text-6xl lg:text-7xl ${
@@ -223,8 +223,8 @@ export function HeroSection() {
               </Link>
             </div>
 
-            {/* Stats row */}
-            <div
+          
+            {/* <div
               className={`mt-16 flex gap-10 transition-all duration-1000 delay-700 ${
                 isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
@@ -243,7 +243,7 @@ export function HeroSection() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Right - 3D Hex Grid */}
@@ -270,7 +270,7 @@ export function HeroSection() {
                   <div className="flex flex-col items-center gap-2 text-center">
                     <Code2 className="h-8 w-8 text-primary" />
                     <span className="text-xs font-semibold text-foreground">
-                      Software Dev
+                      Full-Stack
                     </span>
                   </div>
                 </div>
@@ -278,10 +278,10 @@ export function HeroSection() {
               {/* Orbiting Hexes */}
               {[
                 { Icon: Cloud, label: "Cloud", x: "50%", y: "4%", z: 20, delay: "0s", translateX: "-50%" },
-                { Icon: Smartphone, label: "Mobile", x: "82%", y: "65%", z: 30, delay: "1s", translateX: "0" },
-                { Icon: Brain, label: "AI/ML", x: "5%", y: "65%", z: 15, delay: "2s", translateX: "0" },
-                { Icon: Database, label: "Data", x: "78%", y: "18%", z: 25, delay: "0.5s", translateX: "0" },
-                { Icon: Shield, label: "Security", x: "8%", y: "22%", z: 10, delay: "1.5s", translateX: "0" },
+                { Icon: Smartphone, label: "Scalable Systmes", x: "82%", y: "65%", z: 30, delay: "1s", translateX: "0" },
+                { Icon: Brain, label: "APIs", x: "5%", y: "65%", z: 15, delay: "2s", translateX: "0" },
+                { Icon: Database, label: "DevOps", x: "78%", y: "18%", z: 25, delay: "0.5s", translateX: "0" },
+                { Icon: Shield, label: "SaaS", x: "8%", y: "22%", z: 10, delay: "1.5s", translateX: "0" },
               ].map((item, i) => (
                 <div
                   key={i}

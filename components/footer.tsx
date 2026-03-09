@@ -6,10 +6,12 @@ const footerSections = [
   {
     title: "Services",
     links: [
-      { label: "Software Development", href: "/services#software" },
-      { label: "App Development", href: "/services#apps" },
-      { label: "Cloud Integration", href: "/services#cloud" },
-      { label: "AI & Machine Learning", href: "/services#ai" },
+      { label: "Product Engineering ", href: "/services#software" },
+      { label: "Custom Web Applications ", href: "/services#apps" },
+      { label: "Cloud Infrastructure & Deployment ", href: "/services#cloud" },
+      { label: "API & Backend Systems ", href: "/services#ai" },
+      { label: "Performance & Scalability Optimization", href: "/services#ai" },
+      { label: "Security & Reliability", href: "/services#ai" },
     ],
   },
   {
@@ -102,7 +104,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} DaemonHive Technologies. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["LinkedIn", "Twitter", "GitHub"].map((social) => (
+            {["LinkedIn", "Instagram", "Facebook"].map((social) => (
               <a
                 key={social}
                 href="#"

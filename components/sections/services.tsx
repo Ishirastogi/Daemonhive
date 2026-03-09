@@ -17,10 +17,10 @@ import Link from "next/link"
 const services = [
   {
     icon: Code2,
-    title: "Custom Software Development",
+    title: "Product Engineering",
     description:
-      "End-to-end development of enterprise applications, from architecture design to deployment. We build systems that scale with your ambition.",
-    tags: ["React", "Node.js", "Python", ".NET"],
+      "We design and build scalable digital products from concept to production. Our engineering approach focuses on performance, reliability, and long-term maintainability..",
+    tags: ["React", "Node.js", "Express", ".MongoDB"],
   },
   {
     icon: Smartphone,
@@ -109,11 +109,10 @@ function TiltCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`tilt-card group relative overflow-hidden rounded-lg border border-border bg-card p-8 transition-all duration-700 hover:border-primary/40 ${
+      className={`tilt-card group relative flex h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
       }`}
       style={{
-        transitionDelay: `${index * 120}ms`,
         transformStyle: "preserve-3d",
       }}
     >
@@ -199,10 +198,10 @@ export function ServicesSection() {
                     <h3 className="font-display text-lg font-semibold text-foreground">
                       {service.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
                       {service.description}
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-5 flex flex-wrap gap-2 min-h-[40px]">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}

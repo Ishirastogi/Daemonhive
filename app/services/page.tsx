@@ -37,10 +37,10 @@ const services = [
   {
     id: "apps",
     icon: Smartphone,
-    title: "App Development",
+    title: "Custom Web Applications",
     subtitle: "Native performance, cross-platform reach",
     description:
-      "We craft mobile experiences that users love. Whether native iOS/Android or cross-platform with Flutter, our mobile engineering team delivers polished, performant, and accessible applications for every screen size.",
+      "Modern web applications engineered for speed, scalability, and seamless user experiences. From dashboards to complex platforms, we build systems tailored to your business.",
     features: [
       "Native iOS & Android development",
       "Cross-platform with Flutter & React Native",
@@ -53,10 +53,10 @@ const services = [
   {
     id: "cloud",
     icon: Cloud,
-    title: "Cloud Integration & Migration",
+    title: "Cloud Infrastructure & Deployment",
     subtitle: "Resilient infrastructure, limitless scale",
     description:
-      "We architect, migrate, and manage cloud infrastructure across AWS, Azure, and GCP. Our cloud engineers ensure your systems are secure, cost-optimized, and prepared for exponential growth.",
+      "Reliable cloud infrastructure designed for scalability and uptime. We build and manage production-ready environments optimized for performance and security.",
     features: [
       "Cloud architecture design & review",
       "Multi-cloud & hybrid cloud strategies",
@@ -69,10 +69,10 @@ const services = [
   {
     id: "ai",
     icon: Brain,
-    title: "AI & Machine Learning",
+    title: "API & Backend Systems",
     subtitle: "Intelligence embedded in every workflow",
     description:
-      "We build intelligent systems that learn, adapt, and deliver insights at scale. From computer vision to NLP, our ML engineers transform raw data into competitive advantage.",
+      "High-performance backend architectures that power modern applications. Our APIs are built for scalability, security, and real-time interactions.",
     features: [
       "Custom ML model development & training",
       "Natural language processing & LLM integration",
@@ -85,10 +85,10 @@ const services = [
   {
     id: "data",
     icon: Database,
-    title: "Data Engineering",
+    title: "Performance & Scalability Optimization",
     subtitle: "Transform data into decisions",
     description:
-      "We build the data infrastructure that powers real-time analytics, machine learning, and business intelligence. Our data engineers design systems that are reliable, scalable, and cost-efficient.",
+      "We optimize applications and infrastructure to handle high traffic, reduce latency, and improve overall system efficiency.",
     features: [
       "Data pipeline design & ETL orchestration",
       "Data warehouse & lakehouse architecture",
@@ -101,10 +101,10 @@ const services = [
   {
     id: "devops",
     icon: Shield,
-    title: "Cybersecurity & DevOps",
+    title: "Security & Reliability",
     subtitle: "Ship fast, stay secure",
     description:
-      "We harden your infrastructure with zero-trust security models, automate your deployment pipelines, and implement continuous monitoring so your team can ship with confidence.",
+      "Secure architectures and infrastructure practices designed to protect applications, data, and user privacy. ",
     features: [
       "CI/CD pipeline design & automation",
       "Container orchestration (Docker, Kubernetes)",
