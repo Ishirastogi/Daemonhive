@@ -24,38 +24,38 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: "App Development",
+    title: "Custom Web Application",
     description:
-      "Native and cross-platform mobile applications that deliver seamless user experiences across iOS and Android with pixel-perfect precision.",
-    tags: ["Flutter", "React Native", "Swift", "Kotlin"],
+      "Modern web applications engineered for speed, scalability, and seamless user experiences. From dashboards to complex platforms, we build systems tailored to your business.",
+    tags: ["Reactr", "State Management", "API Integration", "Progressive web apps"],
   },
   {
     icon: Cloud,
-    title: "Cloud Integration",
+    title: "Cloud Infastructure & Deployments",
     description:
-      "Migrate, optimize, and manage your cloud infrastructure. We design resilient architectures on AWS, Azure, and GCP for maximum uptime.",
-    tags: ["AWS", "Azure", "GCP", "Terraform"],
+      "Reliable cloud infrastructure designed for scalability and uptime. We build and manage production-ready environments optimized for performance and security.",
+    tags: ["AWS", "Nginx", "Cloudfare", "PM2"],
   },
   {
     icon: Brain,
-    title: "AI & Machine Learning",
+    title: "API & Backend Systems",
     description:
-      "Transform raw data into intelligent insights. From NLP pipelines to computer vision systems, we bring AI into your business workflows.",
-    tags: ["TensorFlow", "PyTorch", "OpenAI", "LangChain"],
+      "High-performance backend architectures that power modern applications. Our APIs are built for scalability, security, and real-time interactions.",
+    tags: ["Node.js", "Express", "Microservices Architecture", "Authentication & Authorization"],
   },
   {
     icon: Database,
-    title: "Data Engineering",
+    title: "Performance & Scalibility Optimization",
     description:
-      "Build robust data pipelines and warehouses that power real-time analytics, reporting dashboards, and data-driven decision making.",
-    tags: ["Spark", "Kafka", "Snowflake", "dbt"],
+      "We optimize applications and infrastructure to handle high traffic, reduce latency, and improve overall system efficiency.",
+    tags: ["Server Optimization", "Coaching Stratigies", "SnCDN Integration", "Load handling"],
   },
   {
     icon: Shield,
-    title: "Cybersecurity & DevOps",
+    title: "Security & Reliability",
     description:
-      "Harden your infrastructure with zero-trust security models, CI/CD pipelines, and continuous monitoring to protect your digital assets.",
-    tags: ["Docker", "K8s", "CI/CD", "SOC 2"],
+      "Secure architectures and infrastructure practices designed to protect applications, data, and user privacy.",
+    tags: ["Authentication & Authorization", "Data Encryption", "Rate Limiting", "Monitoring & Logging"],
   },
 ]
 
