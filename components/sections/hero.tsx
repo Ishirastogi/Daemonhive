@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { ArrowRight, Code2, Cloud, Smartphone, Database, Shield, Brain } from "lucide-react"
+import { ArrowRight, Cloud, Server, Code2, Wrench, Pencil } from "lucide-react"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -277,11 +277,11 @@ export function HeroSection() {
               </div>
               {/* Orbiting Hexes */}
               {[
-                { Icon: Cloud, label: "Cloud", x: "50%", y: "4%", z: 20, delay: "0s", translateX: "-50%" },
-                { Icon: Smartphone, label: "Scalable Systmes", x: "82%", y: "65%", z: 30, delay: "1s", translateX: "0" },
-                { Icon: Brain, label: "APIs", x: "5%", y: "65%", z: 15, delay: "2s", translateX: "0" },
-                { Icon: Database, label: "DevOps", x: "78%", y: "18%", z: 25, delay: "0.5s", translateX: "0" },
-                { Icon: Shield, label: "SaaS", x: "8%", y: "22%", z: 10, delay: "1.5s", translateX: "0" },
+               { Icon: Cloud, label: "Cloud", x: "50%", y: "4%", z: 20, delay: "0s", translateX: "-50%" },
+{ Icon: Server, label: "Scalable Systems", x: "82%", y: "65%", z: 30, delay: "1s", translateX: "0" },
+{ Icon: Code2, label: "APIs", x: "5%", y: "65%", z: 15, delay: "2s", translateX: "0" },
+{ Icon: Wrench, label: "DevOps", x: "78%", y: "18%", z: 25, delay: "0.5s", translateX: "0" },
+{ Icon: Pencil, label: "SaaS", x: "8%", y: "22%", z: 10, delay: "1.5s", translateX: "0" },
               ].map((item, i) => (
                 <div
                   key={i}

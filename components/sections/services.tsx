@@ -20,21 +20,21 @@ const services = [
     title: "Product Engineering",
     description:
       "We design and build scalable digital products from concept to production. Our engineering approach focuses on performance, reliability, and long-term maintainability..",
-    tags: ["React", "Node.js", "Express", ".MongoDB"],
+    tags: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
     icon: Smartphone,
     title: "Custom Web Application",
     description:
       "Modern web applications engineered for speed, scalability, and seamless user experiences. From dashboards to complex platforms, we build systems tailored to your business.",
-    tags: ["Reactr", "State Management", "API Integration", "Progressive web apps"],
+    tags: ["React", "State Management", "API Integration", "Progressive web apps"],
   },
   {
     icon: Cloud,
     title: "Cloud Infastructure & Deployments",
     description:
       "Reliable cloud infrastructure designed for scalability and uptime. We build and manage production-ready environments optimized for performance and security.",
-    tags: ["AWS", "Nginx", "Cloudfare", "PM2"],
+    tags: ["AWS", "Nginx", "Cloudflare", "PM2"],
   },
   {
     icon: Brain,
@@ -48,7 +48,7 @@ const services = [
     title: "Performance & Scalibility Optimization",
     description:
       "We optimize applications and infrastructure to handle high traffic, reduce latency, and improve overall system efficiency.",
-    tags: ["Server Optimization", "Coaching Stratigies", "SnCDN Integration", "Load handling"],
+    tags: ["Server Optimization", "Caching Strategies", "CDN Integration", "Load handling"],
   },
   {
     icon: Shield,
@@ -191,17 +191,17 @@ export function ServicesSection() {
             return (
               <div key={service.title} data-index={i}>
                 <TiltCard index={i} isVisible={visibleCards.has(i)}>
-                  <div className="relative z-20" style={{ transform: "translateZ(30px)" }}>
+                 <div className="relative z-20 flex h-full flex-col" style={{ transform: "translateZ(30px)" }}>
                     <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="font-display text-lg font-semibold text-foreground">
                       {service.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3 min-h-[60px]">
                       {service.description}
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-2 min-h-[40px]">
+                <div className="mt-auto pt-6 flex flex-wrap gap-2 min-h-[56px] items-start">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
@@ -211,7 +211,7 @@ export function ServicesSection() {
                         </span>
                       ))}
                     </div>
-                    <div className="mt-6">
+                   <div className="mt-auto pt-6">
                       <Link
                         href="/services"
                         className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
