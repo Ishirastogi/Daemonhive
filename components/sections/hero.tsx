@@ -1,42 +1,43 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
-import { ArrowRight, Cloud, Server, Code2, Wrench, Pencil } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowRight, Cloud, Server, Code2, Wrench, Pencil, Webhook } from "lucide-react";
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [scrollY, setScrollY] = useState(0)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isLoaded, setIsLoaded] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
+    setIsLoaded(true);
 
     const handleScroll = () => {
-      setScrollY(window.scrollY)
-      if (!sectionRef.current) return
-      const elements = sectionRef.current.querySelectorAll("[data-parallax]")
+      setScrollY(window.scrollY);
+      if (!sectionRef.current) return;
+      const elements = sectionRef.current.querySelectorAll("[data-parallax]");
       elements.forEach((el) => {
-        const speed = Number(el.getAttribute("data-parallax")) || 0.5
-        ;(el as HTMLElement).style.transform = `translateY(${window.scrollY * speed}px)`
-      })
-    }
+        const speed = Number(el.getAttribute("data-parallax")) || 0.5;
+        (el as HTMLElement).style.transform =
+          `translateY(${window.scrollY * speed}px)`;
+      });
+    };
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
         x: (e.clientX / window.innerWidth - 0.5) * 2,
         y: (e.clientY / window.innerHeight - 0.5) * 2,
-      })
-    }
+      });
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    window.addEventListener("mousemove", handleMouseMove, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <section
@@ -178,7 +179,9 @@ export function HeroSection() {
           <div>
             <div
               className={`mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary transition-all duration-1000 ${
-                isLoaded ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+                isLoaded
+                  ? "translate-y-0 opacity-100"
+                  : "-translate-y-4 opacity-0"
               }`}
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
@@ -186,17 +189,21 @@ export function HeroSection() {
             </div>
             <h1
               className={`font-display text-5xl font-bold leading-tight tracking-tight text-foreground transition-all duration-1000 delay-150 md:text-6xl lg:text-7xl ${
-                isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                isLoaded
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
             >
               <span className="text-balance">
-                Where Innovation{" "}
-                <span className="text-primary">Meets</span> Execution
+                Where Innovation <span className="text-primary">Meets</span>{" "}
+                Execution
               </span>
             </h1>
             <p
               className={`mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground transition-all duration-1000 delay-300 ${
-                isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                isLoaded
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
             >
               We are DaemonHive Technologies. An elite team of engineers and
@@ -205,7 +212,9 @@ export function HeroSection() {
             </p>
             <div
               className={`mt-10 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${
-                isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                isLoaded
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
             >
               <Link
@@ -223,7 +232,6 @@ export function HeroSection() {
               </Link>
             </div>
 
-          
             {/* <div
               className={`mt-16 flex gap-10 transition-all duration-1000 delay-700 ${
                 isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -249,7 +257,9 @@ export function HeroSection() {
           {/* Right - 3D Hex Grid */}
           <div
             className={`relative hidden transition-all duration-1200 delay-500 lg:block ${
-              isLoaded ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
+              isLoaded
+                ? "translate-x-0 opacity-100"
+                : "translate-x-16 opacity-0"
             }`}
             style={{ perspective: "1000px" }}
           >
@@ -277,11 +287,51 @@ export function HeroSection() {
               </div>
               {/* Orbiting Hexes */}
               {[
-               { Icon: Cloud, label: "Cloud", x: "50%", y: "4%", z: 20, delay: "0s", translateX: "-50%" },
-{ Icon: Server, label: "Scalable Systems", x: "82%", y: "65%", z: 30, delay: "1s", translateX: "0" },
-{ Icon: Code2, label: "APIs", x: "5%", y: "65%", z: 15, delay: "2s", translateX: "0" },
-{ Icon: Wrench, label: "DevOps", x: "78%", y: "18%", z: 25, delay: "0.5s", translateX: "0" },
-{ Icon: Pencil, label: "SaaS", x: "8%", y: "22%", z: 10, delay: "1.5s", translateX: "0" },
+                {
+                  Icon: Cloud,
+                  label: "Cloud",
+                  x: "50%",
+                  y: "4%",
+                  z: 20,
+                  delay: "0s",
+                  translateX: "-50%",
+                },
+                {
+                  Icon: Server,
+                  label: "Scalable Systems",
+                  x: "82%",
+                  y: "65%",
+                  z: 30,
+                  delay: "1s",
+                  translateX: "0",
+                },
+                {
+                  Icon: Webhook,
+                  label: "APIs",
+                  x: "5%",
+                  y: "65%",
+                  z: 15,
+                  delay: "2s",
+                  translateX: "0",
+                },
+                {
+                  Icon: Wrench,
+                  label: "DevOps",
+                  x: "78%",
+                  y: "18%",
+                  z: 25,
+                  delay: "0.5s",
+                  translateX: "0",
+                },
+                {
+                  Icon: Pencil,
+                  label: "SaaS",
+                  x: "8%",
+                  y: "22%",
+                  z: 10,
+                  delay: "1.5s",
+                  translateX: "0",
+                },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -310,9 +360,36 @@ export function HeroSection() {
                 aria-hidden="true"
                 style={{ transform: "translateZ(5px)" }}
               >
-                <line x1="50%" y1="18%" x2="50%" y2="42%" stroke="hsl(211, 95%, 45%)" strokeOpacity="0.1" strokeWidth="1" strokeDasharray="4 4" />
-                <line x1="50%" y1="58%" x2="30%" y2="72%" stroke="hsl(211, 95%, 45%)" strokeOpacity="0.1" strokeWidth="1" strokeDasharray="4 4" />
-                <line x1="50%" y1="58%" x2="72%" y2="72%" stroke="hsl(211, 95%, 45%)" strokeOpacity="0.1" strokeWidth="1" strokeDasharray="4 4" />
+                <line
+                  x1="50%"
+                  y1="18%"
+                  x2="50%"
+                  y2="42%"
+                  stroke="hsl(211, 95%, 45%)"
+                  strokeOpacity="0.1"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <line
+                  x1="50%"
+                  y1="58%"
+                  x2="30%"
+                  y2="72%"
+                  stroke="hsl(211, 95%, 45%)"
+                  strokeOpacity="0.1"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <line
+                  x1="50%"
+                  y1="58%"
+                  x2="72%"
+                  y2="72%"
+                  stroke="hsl(211, 95%, 45%)"
+                  strokeOpacity="0.1"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
               </svg>
               {/* Glow */}
               <div className="absolute inset-0 -z-10 animate-pulse-glow rounded-full bg-primary/5 blur-3xl" />
@@ -329,12 +406,14 @@ export function HeroSection() {
         style={{ opacity: Math.max(0, 1 - scrollY / 200) }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-muted-foreground">Scroll to explore</span>
+          <span className="text-xs text-muted-foreground">
+            Scroll to explore
+          </span>
           <div className="h-8 w-5 rounded-full border border-border p-1">
             <div className="h-2 w-full animate-bounce rounded-full bg-primary" />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

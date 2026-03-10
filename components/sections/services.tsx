@@ -109,7 +109,7 @@ function TiltCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`tilt-card group relative flex h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40 ${
+      className={`tilt-card group relative flex min-h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
       }`}
       style={{
@@ -191,36 +191,51 @@ export function ServicesSection() {
             return (
               <div key={service.title} data-index={i}>
                 <TiltCard index={i} isVisible={visibleCards.has(i)}>
-                 <div className="relative z-20 flex h-full flex-col" style={{ transform: "translateZ(30px)" }}>
-                    <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="font-display text-lg font-semibold text-foreground">
-                      {service.title}
-                    </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3 min-h-[60px]">
-                      {service.description}
-                    </p>
-                <div className="mt-auto pt-6 flex flex-wrap gap-2 min-h-[56px] items-start">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                   <div className="mt-auto pt-6">
-                      <Link
-                        href="/services"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
-                      >
-                        Learn more
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
-                  </div>
+               <div
+  className="relative z-20 flex h-full flex-col"
+  style={{ transform: "translateZ(30px)" }}
+>
+  {/* Icon */}
+  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+    <Icon className="h-6 w-6 text-primary" />
+  </div>
+
+  {/* Title */}
+  <h3 className="font-display text-lg font-semibold text-foreground">
+    {service.title}
+  </h3>
+
+  {/* Description */}
+  <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+    {service.description}
+  </p>
+
+  {/* Bottom section */}
+  <div className="mt-auto">
+    {/* Tags */}
+    <div className="mt-6 flex flex-wrap gap-2">
+      {service.tags.map((tag) => (
+        <span
+          key={tag}
+          className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {/* Button */}
+    <div className="pt-6">
+      <Link
+        href="/services"
+        className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
+      >
+        Learn more
+        <ArrowRight className="h-3 w-3" />
+      </Link>
+    </div>
+  </div>
+</div>
                   {/* Corner glow on hover */}
                   <div className="pointer-events-none absolute -bottom-2 -right-2 h-24 w-24 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
                 </TiltCard>

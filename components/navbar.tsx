@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,28 +11,30 @@ const navLinks = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Software Development", href: "/services#software" },
-      { label: "App Development", href: "/services#apps" },
-      { label: "Cloud Integration", href: "/services#cloud" },
-      { label: "AI & Machine Learning", href: "/services#ai" },
+      { label: "Product Engineering", href: "/services#software" },
+      { label: "Custom Web Application", href: "/services#apps" },
+      { label: "Cloud Infastructure & Deployments", href: "/services#cloud" },
+      { label: "API & Backend Systems", href: "/services#ai" },
+      { label: "Performance & Scalibility Optimization", href: "/services#ai" },
+      { label: "Security & Reliability", href: "/services#ai" },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Careers", href: "/careers" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-]
+];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -60,7 +62,9 @@ export function Navbar() {
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={() => link.children && setActiveDropdown(link.label)}
+              onMouseEnter={() =>
+                link.children && setActiveDropdown(link.label)
+              }
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
@@ -105,7 +109,11 @@ export function Navbar() {
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMobileOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </nav>
 
@@ -149,5 +157,5 @@ export function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
