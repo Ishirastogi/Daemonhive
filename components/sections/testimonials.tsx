@@ -7,30 +7,36 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Local Wallah Team",
-    role: "Product Team",
+    name: "Garima International",
+    role: "Export Business using StashBlog",
     quote:
-      "DaemonHive helped transform Local Wallah into a scalable hyperlocal B2B platform connecting buyers with thousands of verified sellers across India. The platform allows businesses to submit requirements and quickly get matched with trusted sellers offering competitive prices across cities and towns.",
+      "StashBlog helped us build a professional digital presence for our export business. The platform allows us to showcase our product catalog and manage our portfolio website with ease.",
   },
   {
-    name: "StashBlog Team",
-    role: "Product Team",
+    name: "LocalWallah",
+    role: "Marketplace & Food Delivery Platform",
     quote:
-      "DaemonHive designed and developed StashBlog to simplify the process of creating and managing product showcase websites. With an intuitive interface and easy-to-use tools, the platform enables users to build and manage content-driven websites without needing technical expertise.",
+      "DaemonHive built a powerful hyperlocal marketplace ecosystem connecting merchants and customers. The platform handles orders, notifications, and merchant operations smoothly.",
   },
   {
-    name: "BCN Team",
-    role: "Product Team",
+    name: "Urns of Dignity",
+    role: "Memorial Products E-Commerce Platform",
     quote:
-      "DaemonHive built BCN as a comprehensive directory platform connecting the Brahmin community with businesses, services, and professionals across multiple domains. The platform provides reliable information, reviews, and contact details, making it easier for users to discover trusted services.",
+      "DaemonHive developed our complete e-commerce platform with secure online payments and a clean storefront. The system has been reliable and easy for our team to manage.",
   },
   {
-    name: "FoodWallah Team",
-    role: "Product Team",
+    name: "BCN (Brahmin Community Network)",
+    role: "Community Networking Platform",
     quote:
-      "DaemonHive developed FoodWallah as a modern food delivery platform designed to connect users with local restaurants efficiently. The system supports restaurant listings, ordering workflows, and delivery management, providing a smooth and scalable experience similar to leading food delivery apps.",
+      "DaemonHive built our networking platform with event participation, donations, and location services. The system was delivered with full deployment and infrastructure setup.",
   },
-];
+  {
+    name: "Yourganicx Nutrition",
+    role: "Nutrition Brand E-Commerce Website",
+    quote:
+      "The website built by DaemonHive helped us launch our nutrition products online with a smooth shopping experience and secure Razorpay payment integration.",
+  },
+]
 
 export function TestimonialsSection() {
   const [current, setCurrent] = useState(0);

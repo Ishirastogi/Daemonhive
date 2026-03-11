@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useEffect, useRef, useState, useCallback } from "react"
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   Code2,
   Cloud,
@@ -11,8 +11,8 @@ import {
   Database,
   Shield,
   ArrowRight,
-} from "lucide-react"
-import Link from "next/link"
+} from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -27,7 +27,12 @@ const services = [
     title: "Custom Web Application",
     description:
       "Modern web applications engineered for speed, scalability, and seamless user experiences. From dashboards to complex platforms, we build systems tailored to your business.",
-    tags: ["React", "State Management", "API Integration", "Progressive web apps"],
+    tags: [
+      "React",
+      "State Management",
+      "API Integration",
+      "Progressive web apps",
+    ],
   },
   {
     icon: Cloud,
@@ -41,75 +46,87 @@ const services = [
     title: "API & Backend Systems",
     description:
       "High-performance backend architectures that power modern applications. Our APIs are built for scalability, security, and real-time interactions.",
-    tags: ["Node.js", "Express", "Microservices Architecture", "Authentication & Authorization"],
+    tags: [
+      "Node.js",
+      "Express",
+      "Microservices Architecture",
+      "Authentication & Authorization",
+    ],
   },
   {
     icon: Database,
     title: "Performance & Scalibility Optimization",
     description:
       "We optimize applications and infrastructure to handle high traffic, reduce latency, and improve overall system efficiency.",
-    tags: ["Server Optimization", "Caching Strategies", "CDN Integration", "Load handling"],
+    tags: [
+      "Server Optimization",
+      "Caching Strategies",
+      "CDN Integration",
+      "Load handling",
+    ],
   },
   {
     icon: Shield,
     title: "Security & Reliability",
     description:
       "Secure architectures and infrastructure practices designed to protect applications, data, and user privacy.",
-    tags: ["Authentication & Authorization", "Data Encryption", "Rate Limiting", "Monitoring & Logging"],
+    tags: [
+      "Authentication & Authorization",
+      "Data Encryption",
+      "Rate Limiting",
+      "Monitoring & Logging",
+    ],
   },
-]
+];
 
 function TiltCard({
   children,
   index,
   isVisible,
 }: {
-  children: React.ReactNode
-  index: number
-  isVisible: boolean
+  children: React.ReactNode;
+  index: number;
+  isVisible: boolean;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const glareRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const el = cardRef.current
-      const glare = glareRef.current
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-      const rotateX = ((y - centerY) / centerY) * -10
-      const rotateY = ((x - centerX) / centerX) * 10
-      el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`
-      if (glare) {
-        const glareX = (x / rect.width) * 100
-        const glareY = (y / rect.height) * 100
-        glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0, 116, 228, 0.12) 0%, transparent 60%)`
-      }
-    },
-    []
-  )
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+    el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+    if (glare) {
+      const glareX = (x / rect.width) * 100;
+      const glareY = (y / rect.height) * 100;
+      glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0, 116, 228, 0.12) 0%, transparent 60%)`;
+    }
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
-    const el = cardRef.current
-    const glare = glareRef.current
-    if (!el) return
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
     el.style.transform =
-      "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)"
+      "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
     if (glare) {
-      glare.style.background = "transparent"
+      glare.style.background = "transparent";
     }
-  }, [])
+  }, []);
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`tilt-card group relative flex min-h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40 ${
+     className={`tilt-card group relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40
         isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
       }`}
       style={{
@@ -122,42 +139,48 @@ function TiltCard({
       />
       {children}
     </div>
-  )
+  );
 }
 
 export function ServicesSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-  const [headerVisible, setHeaderVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const [headerVisible, setHeaderVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = entry.target.getAttribute("data-index")
+          const index = entry.target.getAttribute("data-index");
           if (index !== null && entry.isIntersecting) {
-            setVisibleCards((prev) => new Set(prev).add(Number(index)))
+            setVisibleCards((prev) => new Set(prev).add(Number(index)));
           }
-          if (entry.target.hasAttribute("data-header") && entry.isIntersecting) {
-            setHeaderVisible(true)
+          if (
+            entry.target.hasAttribute("data-header") &&
+            entry.isIntersecting
+          ) {
+            setHeaderVisible(true);
           }
-        })
+        });
       },
-      { threshold: 0.15 }
-    )
+      { threshold: 0.15 },
+    );
 
-    const header = sectionRef.current?.querySelector("[data-header]")
-    if (header) observer.observe(header)
-    const cards = sectionRef.current?.querySelectorAll("[data-index]")
-    cards?.forEach((card) => observer.observe(card))
+    const header = sectionRef.current?.querySelector("[data-header]");
+    if (header) observer.observe(header);
+    const cards = sectionRef.current?.querySelectorAll("[data-index]");
+    cards?.forEach((card) => observer.observe(card));
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} id="services" className="relative py-32">
       {/* Scroll-reactive background light */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="animate-pulse-glow absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-[120px]" />
       </div>
 
@@ -185,65 +208,65 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="perspective-container grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="perspective-container grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
-            const Icon = service.icon
+            const Icon = service.icon;
             return (
               <div key={service.title} data-index={i}>
                 <TiltCard index={i} isVisible={visibleCards.has(i)}>
-               <div
-  className="relative z-20 flex h-full flex-col"
-  style={{ transform: "translateZ(30px)" }}
->
-  {/* Icon */}
-  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-    <Icon className="h-6 w-6 text-primary" />
-  </div>
+                  <div
+                    className="relative z-20 flex h-full flex-col"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    {/* Icon */}
+                    <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
 
-  {/* Title */}
-  <h3 className="font-display text-lg font-semibold text-foreground">
-    {service.title}
-  </h3>
+                    {/* Title */}
+                    <h3 className="font-display text-lg font-semibold text-foreground">
+                      {service.title}
+                    </h3>
 
-  {/* Description */}
-  <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-    {service.description}
-  </p>
+                    {/* Description */}
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                      {service.description}
+                    </p>
 
-  {/* Bottom section */}
-  <div className="mt-auto">
-    {/* Tags */}
-    <div className="mt-6 flex flex-wrap gap-2">
-      {service.tags.map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
+                    {/* Bottom section */}
+                    <div className="mt-auto">
+                      {/* Tags */}
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {service.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
 
-    {/* Button */}
-    <div className="pt-6">
-      <Link
-        href="/services"
-        className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
-      >
-        Learn more
-        <ArrowRight className="h-3 w-3" />
-      </Link>
-    </div>
-  </div>
-</div>
+                      {/* Button */}
+                      <div className="pt-6">
+                        <Link
+                          href="/services"
+                          className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
+                        >
+                          Learn more
+                          <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                   {/* Corner glow on hover */}
                   <div className="pointer-events-none absolute -bottom-2 -right-2 h-24 w-24 rounded-full bg-primary/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
                 </TiltCard>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

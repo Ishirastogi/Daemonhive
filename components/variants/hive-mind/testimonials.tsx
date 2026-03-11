@@ -7,32 +7,40 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "CTO, NovaPay Financial",
+    name: "Garima International",
+    role: "Export Business using StashBlog",
     quote:
-      "DaemonHive took our legacy monolith and rebuilt it into a modern microservices architecture. The result was a 400% improvement in transaction throughput and a 60% reduction in infrastructure costs.",
-    rating: 5,
+      "StashBlog helped us build a professional digital presence for our export business. The platform allowed us to create a portfolio website, manage product catalogs, and operate with a custom domain effortlessly.",
   },
   {
-    name: "Marcus Rothwell",
-    role: "VP Engineering, Orbitix",
+    name: "LocalWallah",
+    role: "Marketplace & Food Delivery Platform",
     quote:
-      "Their team delivered a production-ready AI recommendation engine in just 8 weeks. The quality of their engineering is genuinely world-class. We have since engaged them for three additional projects.",
-    rating: 5,
+      "DaemonHive developed a complete hyperlocal ecosystem connecting merchants and consumers through marketplace and food delivery services. The platform includes merchant dashboards, notifications, and scalable infrastructure.",
   },
   {
-    name: "Priya Nair",
-    role: "Founder, HealthBridge",
+    name: "Urns of Dignity",
+    role: "Memorial Products E-Commerce Platform",
     quote:
-      "From mobile app to HIPAA-compliant cloud infrastructure, DaemonHive handled every layer of our stack. They didn't just build software, they built the foundation for our Series A.",
-    rating: 5,
+      "DaemonHive built a fully functional e-commerce platform with a custom storefront and secure online payments through PayPal and Stripe. The platform supports our business operations smoothly and reliably.",
   },
   {
-    name: "Tobias Hagen",
-    role: "Director of Digital, Krellmann Group",
+    name: "BCN (Brahmin Community Network)",
+    role: "Community Networking Platform",
     quote:
-      "We evaluated five agencies before choosing DaemonHive. Their technical depth and communication transparency was leagues ahead. They delivered on time and under budget.",
-    rating: 5,
+      "DaemonHive created a complete community networking platform including events, donations, and location-based features with Google Maps integration. After completion, the entire system was successfully transferred to our team for independent management.",
+  },
+  {
+    name: "Yourganicx Nutrition",
+    role: "Nutrition Brand E-Commerce Website",
+    quote:
+      "DaemonHive delivered a clean and functional e-commerce website for our nutrition brand, allowing customers to purchase products like Green Tea Gummies and Apple Cider Vinegar Gummies through a seamless online experience.",
+  },
+  {
+    name: "Sher Sweets",
+    role: "Business Link Page",
+    quote:
+      "The business link page built by DaemonHive helped us centralize all our online platforms including social media, reviews, and contact information, making it easier for customers to connect with us.",
   },
 ]
 
@@ -164,7 +172,7 @@ export function TestimonialsSection() {
               }}
             >
               <div>
-                <div className="mb-3 flex gap-1">
+                {/* <div className="mb-3 flex gap-1">
                   {Array.from({ length: testimonials[current].rating }).map(
                     (_, i) => (
                       <Star
@@ -173,7 +181,7 @@ export function TestimonialsSection() {
                       />
                     )
                   )}
-                </div>
+                </div> */}
                 <div className="font-display text-lg font-semibold text-foreground">
                   {testimonials[current].name}
                 </div>
