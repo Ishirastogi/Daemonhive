@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef, useCallback } from "react"
 import { HexagonBackground } from "@/components/hexagon-background"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -16,6 +17,71 @@ import {
   CheckCircle2,
 } from "lucide-react"
 import Link from "next/link"
+
+// --- Animation Wrapper Internal Component with Glare ---
+function CardAnimationWrapper({ children }: { children: React.ReactNode }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    el.style.transition = "none"; // Instant tilt tracking
+
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
+
+    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+    if (glare) {
+      glare.style.transition = "none"; // Instant light tracking
+      const glareX = (x / rect.width) * 100;
+      const glareY = (y / rect.height) * 100;
+      // Blue light effect
+      glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0,116,228,0.15) 0%, transparent 65%)`;
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    // Smooth reset for both tilt and light
+    el.style.transition = "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
+    el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+
+    if (glare) {
+      glare.style.transition = "background 0.5s ease";
+      glare.style.background = "transparent";
+    }
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative h-full w-full overflow-hidden rounded-lg"
+      style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+    >
+      {/* Blue Glare Layer */}
+      <div 
+        ref={glareRef}
+        className="pointer-events-none absolute inset-0 z-10 transition-all"
+      />
+      {children}
+    </div>
+  );
+}
 
 const services = [
   {
@@ -74,7 +140,7 @@ const services = [
     description:
       "We develop robust backend systems and scalable APIs that support modern applications. Our backend architectures focus on security, reliability, and efficient data processing for seamless communication between services.",
     features: [
-      "	RESTful API development",
+      " RESTful API development",
       "Scalable backend architecture",
       "Microservices implementation",
       "Authentication and authorization systems",
@@ -122,7 +188,6 @@ export default function ServicesPage() {
       <HexagonBackground />
       <Navbar />
       <main className="relative z-10">
-        {/* Header */}
         <section className="pb-16 pt-32">
           <div className="mx-auto max-w-7xl px-6">
             <span className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
@@ -139,7 +204,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Detail */}
         <section className="pb-16">
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-col gap-20">
@@ -147,16 +211,8 @@ export default function ServicesPage() {
                 const Icon = service.icon
                 const isEven = i % 2 === 0
                 return (
-                  <div
-                    key={service.id}
-                    id={service.id}
-                    className="scroll-mt-24"
-                  >
-                    <div
-                      className={`grid items-center gap-12 lg:grid-cols-2 ${
-                        isEven ? "" : "lg:direction-rtl"
-                      }`}
-                    >
+                  <div key={service.id} id={service.id} className="scroll-mt-24">
+                    <div className={`grid items-center gap-12 lg:grid-cols-2 ${isEven ? "" : "lg:direction-rtl"}`}>
                       <div className={isEven ? "" : "lg:order-2"}>
                         <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
                           <Icon className="h-7 w-7 text-primary" />
@@ -180,30 +236,24 @@ export default function ServicesPage() {
                       </div>
 
                       <div className={isEven ? "" : "lg:order-1"}>
-                        <div className="rounded-lg border border-border bg-card p-8">
-                          <h3 className="mb-6 font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                            Key Capabilities
-                          </h3>
-                          <ul className="flex flex-col gap-4">
-                            {service.features.map((feature) => (
-                              <li
-                                key={feature}
-                                className="flex items-start gap-3"
-                              >
-                                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                                <span className="text-sm text-foreground">
-                                  {feature}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        <CardAnimationWrapper>
+                          <div className="rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/40">
+                            <h3 className="mb-6 font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                              Key Capabilities
+                            </h3>
+                            <ul className="flex flex-col gap-4">
+                              {service.features.map((feature) => (
+                                <li key={feature} className="flex items-start gap-3">
+                                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                                  <span className="text-sm text-foreground">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </CardAnimationWrapper>
                       </div>
                     </div>
-
-                    {i < services.length - 1 && (
-                      <div className="mt-20 border-t border-border" />
-                    )}
+                    {i < services.length - 1 && <div className="mt-20 border-t border-border" />}
                   </div>
                 )
               })}

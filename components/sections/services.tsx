@@ -126,7 +126,7 @@ function TiltCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-     className={`tilt-card group relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40
+      className={`tilt-card group relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-border bg-card p-8 transition-transform duration-300 hover:border-primary/40
         isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
       }`}
       style={{
@@ -229,34 +229,31 @@ export function ServicesSection() {
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3 min-h-[72px]">
                       {service.description}
                     </p>
 
-                    {/* Bottom section */}
-                    <div className="mt-auto">
-                      {/* Tags */}
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {service.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Button */}
-                      <div className="pt-6">
-                        <Link
-                          href="/services"
-                          className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
+                    {/* Tags */}
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground transition-colors group-hover:bg-primary/10 group-hover:text-primary/80"
                         >
-                          Learn more
-                          <ArrowRight className="h-3 w-3" />
-                        </Link>
-                      </div>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Button */}
+                    <div className="mt-auto pt-6">
+                      <Link
+                        href="/services"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all group-hover:gap-2"
+                      >
+                        Learn more
+                        <ArrowRight className="h-3 w-3" />
+                      </Link>
                     </div>
                   </div>
                   {/* Corner glow on hover */}
