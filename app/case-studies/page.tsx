@@ -1,124 +1,204 @@
-"use client"
+"use client";
 
-import { HexagonBackground } from "@/components/hexagon-background"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { CTASection } from "@/components/sections/cta"
-import Link from "next/link"
-import { ArrowRight, TrendingUp, Clock, Users, BarChart3 } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { HexagonBackground } from "@/components/hexagon-background";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { CTASection } from "@/components/sections/cta";
+import Link from "next/link";
+import { ArrowRight, TrendingUp, Clock, Users, BarChart3 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const caseStudies = [
   {
-    slug: "fintech-modernization",
-    title: "FinTech App Modernization",
-    client: "NovaPay Financial",
-    industry: "Financial Services",
-    duration: "6 months",
-    team: "12 engineers",
+    slug: "stashblog",
+    title: "StashBlog",
+    client: "DaemonHive Internal Product",
+    industry: "Internal SaaS Platform",
+    duration: "Product Development",
+    team: "DaemonHive Engineering Team",
     description:
-      "Rebuilt a legacy monolithic banking platform into a distributed microservices architecture handling 2M+ daily transactions with 99.99% uptime.",
+      "StashBlog is a multi-tenant SaaS platform that allows businesses to create portfolio websites, showcase product catalogs, and manage their digital presence with custom domains.",
     challenge:
-      "NovaPay's decade-old monolithic system couldn't handle the 10x growth in transaction volume. Downtime incidents were costing $200K per hour, and deploying new features took weeks instead of days.",
+      "Many businesses needed a simple way to create and manage professional websites without technical knowledge.",
     solution:
-      "We decomposed the monolith into 24 domain-driven microservices, implemented event-driven architecture with Apache Kafka, and migrated to a Kubernetes-based infrastructure on AWS EKS with auto-scaling capabilities.",
+      "DaemonHive developed a scalable SaaS platform with an easy dashboard where businesses can manage products, content, and website layouts.",
     results: [
-      { metric: "400%", label: "Transaction Throughput Increase" },
-      { metric: "60%", label: "Infrastructure Cost Reduction" },
-      { metric: "99.99%", label: "Uptime Achieved" },
-      { metric: "3x", label: "Faster Feature Deployment" },
+      { metric: "✓", label: "Multi-tenant SaaS platform" },
+      { metric: "✓", label: "Portfolio website builder" },
+      { metric: "✓", label: "Product catalog management" },
+      { metric: "✓", label: "Custom domain support" },
     ],
-    tags: ["Microservices", "AWS", "Kafka", "Kubernetes", "Node.js", "PostgreSQL"],
+    tags: [
+      "Node.js",
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "Redux",
+      "AWS SES",
+      "AWS SNS",
+      "Handlebars",
+    ],
     color: "from-primary/20 to-primary/5",
   },
   {
-    slug: "ecommerce-ai",
-    title: "E-Commerce AI Integration",
-    client: "StyleVault",
-    industry: "Retail & E-Commerce",
-    duration: "4 months",
-    team: "8 engineers",
+    slug: "local-wallah",
+    title: "Local Wallah",
+    client: "Local Businesses",
+    industry: "Marketplace & Food Delivery Platform",
+    duration: "Product Development",
+    team: "DaemonHive Engineering Team",
     description:
-      "Designed and deployed an AI-powered recommendation engine and visual search system that increased average order value by 35% and conversion rates by 22%.",
+      "Local Wallah is a hyperlocal platform that connects merchants and customers through marketplace services and food delivery solutions.",
     challenge:
-      "StyleVault's product catalog of 500K+ items was overwhelming customers. Their generic recommendation system had a click-through rate of just 2.1%, and customers were abandoning carts at an alarming 78% rate.",
+      "Local businesses needed a digital platform to reach nearby customers and manage online orders.",
     solution:
-      "We built a hybrid recommendation engine combining collaborative filtering with deep learning models, integrated computer vision for visual similarity search, and deployed real-time personalization using a feature store on Redis.",
+      "DaemonHive built a marketplace and food ordering system with real-time notifications and mobile support.",
     results: [
-      { metric: "35%", label: "Average Order Value Increase" },
-      { metric: "22%", label: "Conversion Rate Improvement" },
-      { metric: "12%", label: "Cart Abandonment Reduction" },
-      { metric: "8.7x", label: "Recommendation Click-through" },
+      { metric: "✓", label: "Merchant marketplace" },
+      { metric: "✓", label: "Online food ordering system" },
+      { metric: "✓", label: "Customer notifications" },
+      { metric: "✓", label: "Order management system" },
     ],
-    tags: ["TensorFlow", "Python", "Redis", "React", "FastAPI", "GCP"],
+    tags: [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "Redux",
+      "Firebase Cloud Messaging",
+      "Google OAuth",
+      "MSG91 SMS",
+      "Kotlin",
+      "Java",
+    ],
     color: "from-primary/15 to-primary/5",
   },
   {
-    slug: "healthtech-platform",
-    title: "HealthTech Cloud Platform",
-    client: "HealthBridge",
-    industry: "Healthcare",
-    duration: "8 months",
-    team: "15 engineers",
+    slug: "urns-of-dignity",
+    title: "Urns of Dignity",
+    client: "Urns of Dignity",
+    industry: "E-Commerce Platform",
+    duration: "Project Delivery",
+    team: "DaemonHive Engineering Team",
     description:
-      "Built a HIPAA-compliant telehealth platform from the ground up, serving 50K+ monthly active patients with real-time video consultations and AI-assisted diagnostics.",
+      "Urns of Dignity is an e-commerce website designed to sell memorial products through a secure online storefront.",
     challenge:
-      "HealthBridge needed a fully compliant telehealth solution that could handle sensitive patient data, real-time video with sub-200ms latency, and integration with 30+ EHR systems across the United States.",
+      "The client needed a professional online store with secure payment options and reliable communication.",
     solution:
-      "We architected a HIPAA-compliant cloud infrastructure on AWS GovCloud with end-to-end encryption, built custom WebRTC infrastructure for low-latency video, and developed HL7 FHIR adapters for universal EHR interoperability.",
+      "DaemonHive developed a custom e-commerce platform with secure payments and automated email notifications.",
     results: [
-      { metric: "50K+", label: "Monthly Active Patients" },
-      { metric: "150ms", label: "Average Video Latency" },
-      { metric: "30+", label: "EHR Integrations" },
-      { metric: "Series A", label: "Funding Secured Post-Launch" },
+      { metric: "✓", label: "Online product catalog" },
+      { metric: "✓", label: "Secure checkout process" },
+      { metric: "✓", label: "Email notifications" },
+      { metric: "✓", label: "Custom storefront design" },
     ],
-    tags: ["AWS GovCloud", "WebRTC", "Flutter", "FHIR", "Python", "Terraform"],
+    tags: [
+      "Node.js",
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "AWS SES",
+      "AWS SNS",
+      "PayPal",
+      "Stripe",
+    ],
     color: "from-primary/10 to-primary/5",
   },
   {
-    slug: "logistics-optimization",
-    title: "Logistics Route Optimization",
-    client: "Krellmann Group",
-    industry: "Logistics & Supply Chain",
-    duration: "5 months",
-    team: "10 engineers",
+    slug: "mopwna-cling",
+    title: "Mopwna Cling",
+    client: "Mopwna Cling",
+    industry: "Portfolio Website",
+    duration: "Project Delivery",
+    team: "DaemonHive Engineering Team",
     description:
-      "Developed an ML-powered route optimization platform that reduced fleet fuel consumption by 28% and improved delivery accuracy to 99.2% across 15 European markets.",
+      "Mopwna Cling is a portfolio website created to present brand identity and showcase services online.",
     challenge:
-      "Krellmann's fleet of 2,000+ vehicles was operating on manually planned routes. Fuel costs were spiraling, delivery windows were frequently missed, and there was zero real-time visibility into fleet operations.",
+      "The client needed a clean and professional website to improve their online presence.",
     solution:
-      "We built a real-time fleet management platform with ML-based route optimization using constraint satisfaction algorithms, integrated IoT sensors for vehicle telemetry, and developed a driver-facing mobile app with turn-by-turn navigation.",
+      "DaemonHive developed a modern and responsive portfolio website optimized for performance and user experience.",
     results: [
-      { metric: "28%", label: "Fuel Cost Reduction" },
-      { metric: "99.2%", label: "Delivery Accuracy" },
-      { metric: "40%", label: "Fewer Manual Interventions" },
-      { metric: "15", label: "Markets Deployed" },
+      { metric: "✓", label: "Responsive website design" },
+      { metric: "✓", label: "Brand-focused layout" },
+      { metric: "✓", label: "Service showcase sections" },
+      { metric: "✓", label: "SEO optimized structure" },
     ],
-    tags: ["Python", "OR-Tools", "React", "Flutter", "Kafka", "MongoDB"],
+    tags: ["React.js", "HTML5", "CSS", "SCSS"],
     color: "from-primary/15 to-primary/5",
   },
-]
+  {
+    slug: "bcn",
+    title: "BCN (Brahmin Community Network)",
+    client: "BCN",
+    industry: "Community Networking Platform",
+    duration: "Platform Development",
+    team: "DaemonHive Engineering Team",
+    description:
+      "BCN is a community platform that allows members to connect, participate in events, donate to causes, and discover services within their community.",
+    challenge:
+      "The client needed a digital platform to manage community interaction, events, and donations.",
+    solution:
+      "DaemonHive developed a secure platform with communication tools, payment integration, and location-based features.",
+    results: [
+      { metric: "✓", label: "Community networking system" },
+      { metric: "✓", label: "Event participation features" },
+      { metric: "✓", label: "Donation management" },
+      { metric: "✓", label: "Location-based services" },
+    ],
+    tags: [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "Redux",
+      "Razorpay",
+      "Google Maps",
+      "WhatsApp Integration",
+    ],
+    color: "from-primary/15 to-primary/5",
+  },
+  {
+    slug: "yourganicx-nutrition",
+    title: "Yourganicx Nutrition",
+    client: "Yourganicx",
+    industry: "E-Commerce Platform",
+    duration: "Project Delivery",
+    team: "DaemonHive Engineering Team",
+    description:
+      "Yourganicx Nutrition is an e-commerce website built for a nutrition brand selling health products like Green Tea Gummies and Apple Cider Vinegar Gummies.",
+    challenge:
+      "The client required an online store to showcase products and handle secure payments.",
+    solution:
+      "DaemonHive built a clean and easy-to-use e-commerce website with payment integration.",
+    results: [
+      { metric: "✓", label: "Online product catalog" },
+      { metric: "✓", label: "Secure payment gateway" },
+      { metric: "✓", label: "Mobile responsive design" },
+      { metric: "✓", label: "Simple checkout process" },
+    ],
+    tags: ["PHP", "HTML5", "CSS", "JavaScript", "MySQL", "Razorpay"],
+    color: "from-primary/15 to-primary/5",
+  },
+];
 
 export default function CaseStudiesPage() {
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = Number(entry.target.getAttribute("data-index"))
+          const index = Number(entry.target.getAttribute("data-index"));
           if (entry.isIntersecting) {
-            setVisibleCards((prev) => new Set(prev).add(index))
+            setVisibleCards((prev) => new Set(prev).add(index));
           }
-        })
+        });
       },
-      { threshold: 0.15 }
-    )
-    const cards = containerRef.current?.querySelectorAll("[data-index]")
-    cards?.forEach((card) => observer.observe(card))
-    return () => observer.disconnect()
-  }, [])
+      { threshold: 0.15 },
+    );
+    const cards = containerRef.current?.querySelectorAll("[data-index]");
+    cards?.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -135,8 +215,9 @@ export default function CaseStudiesPage() {
               Case Studies
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Real projects. Measurable outcomes. Explore how we have helped companies 
-              across industries transform their technology and accelerate growth.
+              Real projects. Measurable outcomes. Explore how we have helped
+              companies across industries transform their technology and
+              accelerate growth.
             </p>
           </div>
         </section>
@@ -220,7 +301,10 @@ export default function CaseStudiesPage() {
                       </div>
                       <div className="grid grid-cols-2 gap-6">
                         {study.results.map((result) => (
-                          <div key={result.label} className="rounded-md border border-border bg-card p-5">
+                          <div
+                            key={result.label}
+                            className="rounded-md border border-border bg-card p-5"
+                          >
                             <div className="flex items-center gap-2">
                               <TrendingUp className="h-4 w-4 text-primary" />
                               <span className="font-display text-2xl font-bold text-primary">
@@ -245,5 +329,5 @@ export default function CaseStudiesPage() {
       </main>
       <Footer />
     </>
-  )
+  );
 }

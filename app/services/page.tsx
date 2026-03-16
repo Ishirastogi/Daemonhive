@@ -85,7 +85,7 @@ function CardAnimationWrapper({ children }: { children: React.ReactNode }) {
 
 const services = [
   {
-    id: "software",
+    id: "product",
     icon: Code2,
     title: "Product Engineering",
     subtitle: "Building Digital Products That Scale",
@@ -101,7 +101,7 @@ const services = [
     ],
   },
   {
-    id: "apps",
+    id: "custom",
     icon: Smartphone,
     title: "Custom Web Applications",
     subtitle: "Modern Web Platforms Built for Performance",
@@ -133,7 +133,7 @@ const services = [
     ],
   },
   {
-    id: "ai",
+    id: "api",
     icon: Brain,
     title: "API & Backend Systems",
     subtitle: "Powering Applications with Strong Backend Systems",
@@ -149,7 +149,7 @@ const services = [
     ],
   },
   {
-    id: "data",
+    id: "performance",
     icon: Database,
     title: "Performance & Scalability Optimization",
     subtitle: "Making Applications Faster and More Efficient",
@@ -165,7 +165,7 @@ const services = [
     ],
   },
   {
-    id: "devops",
+    id: "security",
     icon: Shield,
     title: "Security & Reliability",
     subtitle: "Protecting Systems with Strong Security Practices",
