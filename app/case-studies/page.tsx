@@ -4,8 +4,7 @@ import { HexagonBackground } from "@/components/hexagon-background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTASection } from "@/components/sections/cta";
-import Link from "next/link";
-import { ArrowRight, TrendingUp, Clock, Users, BarChart3 } from "lucide-react";
+import { TrendingUp, Clock, Users, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const caseStudies = [
