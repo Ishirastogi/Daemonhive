@@ -16,10 +16,13 @@ const caseStudies = [
     industry: "Internal SaaS Platform",
     duration: "Ongoing",
     team: "DaemonHive Team",
+
     description:
       "A multi-tenant SaaS platform that enables businesses to create portfolio websites, showcase catalogs, and manage digital presence with custom domains.",
+
     challenge:
       "Businesses needed an easy way to create professional websites without technical expertise.",
+
     solution:
       "Built a scalable SaaS platform with dashboard, product management, and customizable domains.",
     results: [
@@ -78,10 +81,8 @@ const caseStudies = [
     team: "DaemonHive Team",
     description:
       "E-commerce platform for selling memorial products with secure payments.",
-    challenge:
-      "Needed secure online store with communication system.",
-    solution:
-      "Built custom storefront with payment + automated emails.",
+    challenge: "Needed secure online store with communication system.",
+    solution: "Built custom storefront with payment + automated emails.",
     results: [
       { metric: "✓", label: "Secure Checkout" },
       { metric: "✓", label: "Custom Storefront" },
@@ -105,12 +106,9 @@ const caseStudies = [
     industry: "Portfolio Website",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description:
-      "Portfolio website for brand identity and online presence.",
-    challenge:
-      "Needed a clean professional website.",
-    solution:
-      "Built modern responsive website with optimized UX.",
+    description: "Portfolio website for brand identity and online presence.",
+    challenge: "Needed a clean professional website.",
+    solution: "Built modern responsive website with optimized UX.",
     results: [
       { metric: "✓", label: "Responsive Design" },
       { metric: "✓", label: "Fast Performance" },
@@ -131,12 +129,9 @@ const caseStudies = [
     industry: "Community Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description:
-      "Community platform for networking, events, and donations.",
-    challenge:
-      "Needed digital system for managing community.",
-    solution:
-      "Built secure platform with payments and communication tools.",
+    description: "Community platform for networking, events, and donations.",
+    challenge: "Needed digital system for managing community.",
+    solution: "Built secure platform with payments and communication tools.",
     results: [
       { metric: "✓", label: "Community Networking" },
       { metric: "✓", label: "Event System" },
@@ -162,12 +157,9 @@ const caseStudies = [
     industry: "E-Commerce Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description:
-      "E-commerce website for nutrition products like gummies.",
-    challenge:
-      "Needed product showcase + payment system.",
-    solution:
-      "Built simple and clean store with payment integration.",
+    description: "E-commerce website for nutrition products like gummies.",
+    challenge: "Needed product showcase + payment system.",
+    solution: "Built simple and clean store with payment integration.",
     results: [
       { metric: "✓", label: "Product Catalog" },
       { metric: "✓", label: "Secure Payments" },
@@ -183,7 +175,7 @@ const caseStudies = [
     tags: ["PHP", "MySQL", "Razorpay"],
     color: "from-primary/15 to-primary/5",
   },
-]
+];
 
 export default function CaseStudiesPage() {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
