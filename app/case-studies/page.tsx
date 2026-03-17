@@ -1,10 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { HexagonBackground } from "@/components/hexagon-background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTASection } from "@/components/sections/cta";
-import { useEffect, useRef, useState } from "react";
 import { TrendingUp, Clock, Users, BarChart3 } from "lucide-react";
 
 const caseStudies = [
