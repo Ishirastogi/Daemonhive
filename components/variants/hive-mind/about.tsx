@@ -28,7 +28,7 @@ const values = [
     icon: Globe,
     title: "Global Scale",
     description:
-      "From Bengaluru to Berlin, our distributed teams deliver enterprise-grade solutions across time zones.",
+      "From Moradabad to Berlin, our distributed teams deliver enterprise-grade solutions across time zones.",
   },
 ]
 
