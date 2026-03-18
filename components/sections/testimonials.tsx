@@ -3,7 +3,7 @@
 import React from "react";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
