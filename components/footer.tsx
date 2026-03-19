@@ -6,12 +6,12 @@ const footerSections = [
   {
     title: "Services",
     links: [
-      { label: "Product Engineering ", href: "/services#software" },
-      { label: "Custom Web Applications ", href: "/services#apps" },
+      { label: "Product Engineering ", href: "/services#product" },
+      { label: "Custom Web Applications ", href: "/services#custom" },
       { label: "Cloud Infrastructure & Deployment ", href: "/services#cloud" },
-      { label: "API & Backend Systems ", href: "/services#ai" },
-      { label: "Performance & Scalability Optimization", href: "/services#ai" },
-      { label: "Security & Reliability", href: "/services#ai" },
+      { label: "API & Backend Systems ", href: "/services#api" },
+      { label: "Performance & Scalability Optimization", href: "/services#performance" },
+      { label: "Security & Reliability", href: "/services#security" },
     ],
   },
   {

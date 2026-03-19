@@ -5,7 +5,7 @@ import { HexagonBackground } from "@/components/hexagon-background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTASection } from "@/components/sections/cta";
-import { TrendingUp, Clock, Users, BarChart3 } from "lucide-react";
+import { Clock, Users, CheckCircle2, Layers3 } from "lucide-react";
 
 const caseStudies = [
   {
@@ -15,62 +15,96 @@ const caseStudies = [
     industry: "Internal SaaS Platform",
     duration: "Ongoing",
     team: "DaemonHive Team",
-
     description:
-      "A multi-tenant SaaS platform that enables businesses to create portfolio websites, showcase catalogs, and manage digital presence with custom domains.",
-
+      "StashBlog is a multi-tenant SaaS platform that allows businesses to create portfolio websites, showcase product catalogs, and manage their digital presence with custom domains.",
     challenge:
-      "Businesses needed an easy way to create professional websites without technical expertise.",
-
+      "Many businesses needed a simple way to create and manage professional websites without technical knowledge.",
     solution:
-      "Built a scalable SaaS platform with dashboard, product management, and customizable domains.",
-    results: [
-      { metric: "6+", label: "Businesses Powered" },
-      { metric: "✓", label: "Multi-tenant Architecture" },
-      { metric: "✓", label: "Custom Domains" },
-      { metric: "✓", label: "Scalable Platform" },
+      "DaemonHive developed a scalable SaaS platform with an easy dashboard where businesses can manage products, content, and website layouts.",
+    capabilities: [
+      "Multi-tenant SaaS platform",
+      "Portfolio website builder",
+      "Product catalog management",
+      "Custom domain support",
+      "Easy content management",
+      "Scalable architecture",
     ],
-    techStack: {
-      core: ["Node.js", "React.js", "Express.js", "MongoDB"],
-      frontend: ["Redux"],
-      cloud: ["AWS SES", "AWS SNS"],
-      templating: ["Handlebars"],
-    },
-    tags: ["Redux", "AWS SES", "AWS SNS", "Handlebars"],
-    color: "from-primary/20 to-primary/5",
+    technologies: [
+      "Node.js",
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "Redux",
+      "AWS SES",
+      "AWS SNS",
+      "Handlebars",
+    ],
   },
-
   {
     slug: "local-wallah",
     title: "Local Wallah",
     client: "Local Businesses",
-    industry: "Marketplace & Food Delivery",
+    industry: "Marketplace & Food Delivery Platform",
     duration: "Ongoing",
     team: "DaemonHive Team",
     description:
-      "A hyperlocal ecosystem connecting merchants and customers via marketplace and food delivery.",
+      "Local Wallah is a hyperlocal platform that connects merchants and customers through marketplace services and food delivery solutions.",
     challenge:
-      "Local businesses needed a digital platform to reach nearby customers.",
+      "Local businesses needed a digital platform to reach nearby customers and manage online orders.",
     solution:
-      "Built marketplace + food delivery system with notifications and mobile support.",
-    results: [
-      { metric: "✓", label: "Marketplace System" },
-      { metric: "✓", label: "Food Delivery" },
-      { metric: "✓", label: "Real-time Notifications" },
-      { metric: "✓", label: "Mobile App Support" },
+      "DaemonHive built a marketplace and food ordering system with real-time notifications and mobile support.",
+    capabilities: [
+      "Merchant marketplace",
+      "Online food ordering system",
+      "Customer notifications",
+      "Secure authentication",
+      "Order management system",
+      "Mobile application support",
     ],
-    techStack: {
-      core: ["Node.js", "React.js", "MongoDB"],
-      frontend: ["Redux"],
-      messaging: ["Firebase Cloud Messaging", "MSG91 SMS"],
-      auth: ["Google OAuth"],
-      telecom: ["DLT Integration"],
-      mobile: ["Kotlin", "Java"],
-    },
-    tags: ["Redux", "FCM", "OAuth", "Kotlin", "Java"],
-    color: "from-primary/15 to-primary/5",
+    technologies: [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "Redux",
+      "Firebase Cloud Messaging",
+      "Google OAuth",
+      "MSG91 SMS Integration",
+      "Kotlin",
+      "Java",
+    ],
+    projectNames: [
+      "Merchant Marketplace",
+      "Food Delivery",
+      "LocalWallah Android App",
+    ],
+    projectTechSections: [
+      {
+        title: "Merchant Marketplace",
+        items: [
+          "Frontend - Redux",
+          "Messaging & Notifications - Firebase Cloud Messaging (FCM)",
+        ],
+      },
+      {
+        title: "Food Delivery",
+        items: [
+          "Frontend - Redux",
+          "Authentication - Google OAuth",
+          "Messaging & Notifications - Firebase Cloud Messaging",
+          "MSG91 SMS Integration",
+          "Telecom Compliance - VI DLT Integration",
+        ],
+      },
+      {
+        title: "LocalWallah Android App",
+        items: [
+          "Programming Languages - Kotlin",
+          "Programming Languages - Java",
+          "Messaging & Notifications - Firebase Cloud Messaging (FCM)",
+        ],
+      },
+    ],
   },
-
   {
     slug: "urns-of-dignity",
     title: "Urns of Dignity",
@@ -79,25 +113,30 @@ const caseStudies = [
     duration: "Project Based",
     team: "DaemonHive Team",
     description:
-      "E-commerce platform for selling memorial products with secure payments.",
-    challenge: "Needed secure online store with communication system.",
-    solution: "Built custom storefront with payment + automated emails.",
-    results: [
-      { metric: "✓", label: "Secure Checkout" },
-      { metric: "✓", label: "Custom Storefront" },
-      { metric: "✓", label: "Email Automation" },
-      { metric: "✓", label: "Cloud Hosting" },
+      "Urns of Dignity is an e-commerce website designed to sell memorial products through a secure online storefront.",
+    challenge:
+      "The client needed a professional online store with secure payment options and reliable communication.",
+    solution:
+      "DaemonHive developed a custom e-commerce platform with secure payments and automated email notifications.",
+    capabilities: [
+      "Online product catalog",
+      "Secure checkout process",
+      "Email notifications",
+      "Custom storefront design",
+      "Cloud hosting infrastructure",
+      "SEO-friendly structure",
     ],
-    techStack: {
-      core: ["Node.js", "React.js", "Express.js", "MongoDB"],
-      cloud: ["AWS SES", "AWS SNS"],
-      templating: ["Handlebars"],
-      payments: ["PayPal", "Stripe"],
-    },
-    tags: ["AWS", "Stripe", "PayPal", "Handlebars"],
-    color: "from-primary/10 to-primary/5",
+    technologies: [
+      "Node.js",
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "AWS SES",
+      "AWS SNS",
+      "PayPal",
+      "Stripe",
+    ],
   },
-
   {
     slug: "mopwna-cling",
     title: "Mopwna Cling",
@@ -105,50 +144,53 @@ const caseStudies = [
     industry: "Portfolio Website",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "Portfolio website for brand identity and online presence.",
-    challenge: "Needed a clean professional website.",
-    solution: "Built modern responsive website with optimized UX.",
-    results: [
-      { metric: "✓", label: "Responsive Design" },
-      { metric: "✓", label: "Fast Performance" },
-      { metric: "✓", label: "SEO Optimized" },
-      { metric: "✓", label: "Modern UI" },
+    description:
+      "Mopwna Cling is a portfolio website created to present brand identity and showcase services online.",
+    challenge:
+      "The client needed a clean and professional website to improve their online presence.",
+    solution:
+      "DaemonHive developed a modern and responsive portfolio website optimized for performance and user experience.",
+    capabilities: [
+      "Responsive website design",
+      "Brand-focused layout",
+      "Service showcase sections",
+      "Mobile-friendly interface",
+      "Fast page loading",
+      "SEO optimized structure",
     ],
-    techStack: {
-      frontend: ["React.js", "HTML5", "CSS", "SCSS"],
-    },
-    tags: ["React", "CSS", "SCSS"],
-    color: "from-primary/15 to-primary/5",
+    technologies: ["React.js", "HTML5", "CSS", "SCSS"],
   },
-
   {
     slug: "bcn",
     title: "BCN (Brahmin Community Network)",
     client: "BCN",
-    industry: "Community Platform",
+    industry: "Community Networking Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "Community platform for networking, events, and donations.",
-    challenge: "Needed digital system for managing community.",
-    solution: "Built secure platform with payments and communication tools.",
-    results: [
-      { metric: "✓", label: "Community Networking" },
-      { metric: "✓", label: "Event System" },
-      { metric: "✓", label: "Donations" },
-      { metric: "✓", label: "Location Services" },
+    description:
+      "BCN is a community platform that allows members to connect, participate in events, contribute to causes, and discover services within their community.",
+    challenge:
+      "The client needed a digital platform to manage community interaction and  events.",
+    solution:
+      "DaemonHive developed a secure platform with communication tools, payment integration, and location-based features.",
+    capabilities: [
+      "Community networking system",
+      "Event participation features",
+      "Donation support",
+      "Member communication tools",
+      "Location-based services",
+      "Secure payment integration",
     ],
-    techStack: {
-      core: ["Node.js", "React.js", "MongoDB"],
-      frontend: ["Redux"],
-      payments: ["Razorpay"],
-      communication: ["WhatsApp Integration"],
-      telecom: ["DLT Integration"],
-      maps: ["Google Maps"],
-    },
-    tags: ["Razorpay", "Maps", "WhatsApp", "Redux"],
-    color: "from-primary/15 to-primary/5",
+    technologies: [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "Redux",
+      "Razorpay",
+      "Google Maps Integration",
+      "WhatsApp Workflow Integration",
+    ],
   },
-
   {
     slug: "yourganicx",
     title: "Yourganicx Nutrition",
@@ -156,23 +198,21 @@ const caseStudies = [
     industry: "E-Commerce Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "E-commerce website for nutrition products like gummies.",
-    challenge: "Needed product showcase + payment system.",
-    solution: "Built simple and clean store with payment integration.",
-    results: [
-      { metric: "✓", label: "Product Catalog" },
-      { metric: "✓", label: "Secure Payments" },
-      { metric: "✓", label: "Mobile Friendly" },
-      { metric: "✓", label: "SEO Optimized" },
+    description:
+      "Yourganicx Nutrition is an e-commerce website built for a nutrition brand selling health products like Green Tea Gummies and Apple Cider Vinegar Gummies.",
+    challenge:
+      "The client required an online store to showcase products and handle secure payments.",
+    solution:
+      "DaemonHive built a clean and easy-to-use e-commerce website with payment integration.",
+    capabilities: [
+      "Online product catalog",
+      "Secure payment gateway",
+      "Mobile responsive design",
+      "Simple checkout process",
+      "Product information pages",
+      "SEO-friendly structure",
     ],
-    techStack: {
-      language: ["PHP"],
-      frontend: ["HTML5", "CSS", "JavaScript"],
-      database: ["MySQL"],
-      payments: ["Razorpay"],
-    },
-    tags: ["PHP", "MySQL", "Razorpay"],
-    color: "from-primary/15 to-primary/5",
+    technologies: ["PHP", "HTML5", "CSS", "JavaScript", "MySQL", "Razorpay"],
   },
 ];
 
@@ -192,8 +232,10 @@ export default function CaseStudiesPage() {
       },
       { threshold: 0.15 },
     );
+
     const cards = containerRef.current?.querySelectorAll("[data-index]");
     cards?.forEach((card) => observer.observe(card));
+
     return () => observer.disconnect();
   }, []);
 
@@ -201,8 +243,8 @@ export default function CaseStudiesPage() {
     <>
       <HexagonBackground />
       <Navbar />
+
       <main className="relative z-10">
-        {/* Page Header */}
         <section className="pb-16 pt-32">
           <div className="mx-auto max-w-7xl px-6">
             <span className="font-display text-sm font-semibold uppercase tracking-widest text-primary">
@@ -211,15 +253,15 @@ export default function CaseStudiesPage() {
             <h1 className="mt-4 font-display text-5xl font-bold tracking-tight text-foreground md:text-6xl">
               Case Studies
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Real projects. Measurable outcomes. Explore how we have helped
-              companies across industries transform their technology and
-              accelerate growth.
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              Real projects with measurable outcomes. This section highlights
+              how DaemonHive Technologies has helped companies across different
+              industries modernize their technology and accelerate business
+              growth.
             </p>
           </div>
         </section>
 
-        {/* Case Studies */}
         <section className="pb-32" ref={containerRef}>
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-col gap-16">
@@ -235,8 +277,7 @@ export default function CaseStudiesPage() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="grid lg:grid-cols-2">
-                    {/* Left - Info */}
-                    <div className="p-8 md:p-12">
+                    <div className="p-8 md:p-10">
                       <div className="mb-4 flex flex-wrap items-center gap-3">
                         <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                           {study.industry}
@@ -248,72 +289,166 @@ export default function CaseStudiesPage() {
                           <Users className="h-3 w-3" /> {study.team}
                         </span>
                       </div>
+
                       <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
                         {study.title}
                       </h2>
+
                       <p className="mt-2 text-sm text-muted-foreground">
                         Client: {study.client}
                       </p>
-                      <p className="mt-4 leading-relaxed text-muted-foreground">
-                        {study.description}
-                      </p>
 
-                      <div className="mt-6">
+                      <div className="mt-5">
                         <h3 className="font-display text-sm font-semibold text-foreground">
-                          The Challenge
+                          Overview
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {study.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-5">
+                        <h3 className="font-display text-sm font-semibold text-foreground">
+                          Challenge
                         </h3>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                           {study.challenge}
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-5">
                         <h3 className="font-display text-sm font-semibold text-foreground">
-                          Our Solution
+                          Solution
                         </h3>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                           {study.solution}
                         </p>
                       </div>
 
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {study.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                      {study.slug === "local-wallah" &&
+                        "projectNames" in study &&
+                        study.projectNames && (
+                          <div className="mt-6">
+                            <h3 className="font-display text-sm font-semibold text-foreground">
+                              Projects
+                            </h3>
+
+                            <div className="mt-3 space-y-3">
+                              {study.projectNames.map((projectName) => (
+                                <div
+                                  key={projectName}
+                                  className="rounded-md border border-border bg-secondary/20 p-4"
+                                >
+                                  <p className="text-sm font-medium text-foreground">
+                                    {projectName}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                     </div>
 
-                    {/* Right - Results */}
-                    <div className="flex flex-col justify-center border-t border-border bg-secondary/30 p-8 md:p-12 lg:border-l lg:border-t-0">
-                      <div className="mb-6 flex items-center gap-2">
-                        <BarChart3 className="h-5 w-5 text-primary" />
-                        <h3 className="font-display text-lg font-semibold text-foreground">
-                          Key Results
-                        </h3>
-                      </div>
-                      <div className="grid grid-cols-2 gap-6">
-                        {study.results.map((result) => (
-                          <div
-                            key={result.label}
-                            className="rounded-md border border-border bg-card p-5"
-                          >
-                            <div className="flex items-center gap-2">
-                              <TrendingUp className="h-4 w-4 text-primary" />
-                              <span className="font-display text-2xl font-bold text-primary">
-                                {result.metric}
-                              </span>
+                    <div className="border-t border-border bg-secondary/30 p-8 md:p-10 lg:border-l lg:border-t-0">
+                      {study.slug === "local-wallah" &&
+                      "projectTechSections" in study ? (
+                        <div className="space-y-6">
+                          <div>
+                            <div className="mb-4 flex items-center gap-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary" />
+                              <h3 className="font-display text-lg font-semibold text-foreground">
+                                Key Capabilities
+                              </h3>
                             </div>
-                            <p className="mt-2 text-xs text-muted-foreground">
-                              {result.label}
-                            </p>
+
+                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                              {study.capabilities.map((item) => (
+                                <div
+                                  key={item}
+                                  className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
+                                >
+                                  {item}
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        ))}
-                      </div>
+
+                          <div>
+                            <div className="mb-4 flex items-center gap-2">
+                              <Layers3 className="h-5 w-5 text-primary" />
+                              <h3 className="font-display text-lg font-semibold text-foreground">
+                                Technologies Used
+                              </h3>
+                            </div>
+
+                            <div className="space-y-4">
+                              {study.projectTechSections?.map((section) => (
+                                <div
+                                  key={section.title}
+                                  className="rounded-md border border-border bg-card p-4"
+                                >
+                                  <h4 className="font-display text-sm font-semibold text-foreground">
+                                    {section.title}
+                                  </h4>
+
+                                  <div className="mt-3 flex flex-wrap gap-2">
+                                    {section.items.map((item) => (
+                                      <span
+                                        key={item}
+                                        className="rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-sm text-muted-foreground"
+                                      >
+                                        {item}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-6">
+                          <div>
+                            <div className="mb-4 flex items-center gap-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary" />
+                              <h3 className="font-display text-lg font-semibold text-foreground">
+                                Key Capabilities
+                              </h3>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                              {study.capabilities.map((item) => (
+                                <div
+                                  key={item}
+                                  className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
+                                >
+                                  {item}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className="mb-4 flex items-center gap-2">
+                              <Layers3 className="h-5 w-5 text-primary" />
+                              <h3 className="font-display text-lg font-semibold text-foreground">
+                                Technologies Used
+                              </h3>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                              {study.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -324,6 +459,7 @@ export default function CaseStudiesPage() {
 
         <CTASection />
       </main>
+
       <Footer />
     </>
   );
