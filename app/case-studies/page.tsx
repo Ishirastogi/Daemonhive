@@ -1,11 +1,77 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { HexagonBackground } from "@/components/hexagon-background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTASection } from "@/components/sections/cta";
 import { Clock, Users, CheckCircle2, Layers3 } from "lucide-react";
+
+// --- Animation Wrapper Internal Component ---
+function CaseStudyCardWrapper({ children }: { children: React.ReactNode }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    // Remove transition for instant tracking
+    el.style.transition = "none";
+
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Subtle tilt
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+
+    if (glare) {
+      glare.style.transition = "none";
+      const glareX = (x / rect.width) * 100;
+      const glareY = (y / rect.height) * 100;
+      glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0,116,228,0.12) 0%, transparent 60%)`;
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const el = cardRef.current;
+    const glare = glareRef.current;
+    if (!el) return;
+
+    // Smooth reset
+    el.style.transition = "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
+    el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+
+    if (glare) {
+      glare.style.transition = "background 0.5s ease";
+      glare.style.background = "transparent";
+    }
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative h-full w-full overflow-hidden rounded-lg border border-border bg-card shadow-sm"
+      style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+    >
+      {/* Blue Glare Layer */}
+      <div 
+        ref={glareRef}
+        className="pointer-events-none absolute inset-0 z-10 transition-all"
+      />
+      {children}
+    </div>
+  );
+}
 
 const caseStudies = [
   {
@@ -266,192 +332,187 @@ export default function CaseStudiesPage() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-col gap-16">
               {caseStudies.map((study, i) => (
-                <article
+                <div
                   key={study.slug}
                   data-index={i}
-                  className={`overflow-hidden rounded-lg border border-border bg-card transition-all duration-700 ${
+                  className={`transition-all duration-700 ${
                     visibleCards.has(i)
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
                   }`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="grid lg:grid-cols-2">
-                    <div className="p-8 md:p-10">
-                      <div className="mb-4 flex flex-wrap items-center gap-3">
-                        <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                          {study.industry}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="h-3 w-3" /> {study.duration}
-                        </span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Users className="h-3 w-3" /> {study.team}
-                        </span>
-                      </div>
+                  <CaseStudyCardWrapper>
+                    <article className="grid lg:grid-cols-2">
+                      <div className="p-8 md:p-10">
+                        <div className="mb-4 flex flex-wrap items-center gap-3">
+                          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                            {study.industry}
+                          </span>
+                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <Clock className="h-3 w-3" /> {study.duration}
+                          </span>
+                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <Users className="h-3 w-3" /> {study.team}
+                          </span>
+                        </div>
 
-                      <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
-                        {study.title}
-                      </h2>
+                        <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">
+                          {study.title}
+                        </h2>
 
-                      <p className="mt-2 text-sm text-muted-foreground">
-                        Client: {study.client}
-                      </p>
-
-                      <div className="mt-5">
-                        <h3 className="font-display text-sm font-semibold text-foreground">
-                          Overview
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                          {study.description}
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          Client: {study.client}
                         </p>
+
+                        <div className="mt-5">
+                          <h3 className="font-display text-sm font-semibold text-foreground">
+                            Overview
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {study.description}
+                          </p>
+                        </div>
+
+                        <div className="mt-5">
+                          <h3 className="font-display text-sm font-semibold text-foreground">
+                            Challenge
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {study.challenge}
+                          </p>
+                        </div>
+
+                        <div className="mt-5">
+                          <h3 className="font-display text-sm font-semibold text-foreground">
+                            Solution
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                            {study.solution}
+                          </p>
+                        </div>
+
+                        {study.slug === "local-wallah" &&
+                          "projectNames" in study && (
+                            <div className="mt-6">
+                              <h3 className="font-display text-sm font-semibold text-foreground">
+                                Projects
+                              </h3>
+                              <div className="mt-3 space-y-3">
+                                {study.projectNames?.map((projectName) => (
+                                  <div
+                                    key={projectName}
+                                    className="rounded-md border border-border bg-secondary/20 p-4"
+                                  >
+                                    <p className="text-sm font-medium text-foreground">
+                                      {projectName}
+                                    </p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                       </div>
 
-                      <div className="mt-5">
-                        <h3 className="font-display text-sm font-semibold text-foreground">
-                          Challenge
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                          {study.challenge}
-                        </p>
-                      </div>
+                      <div className="border-t border-border bg-secondary/30 p-8 md:p-10 lg:border-l lg:border-t-0">
+                        {study.slug === "local-wallah" &&
+                        "projectTechSections" in study ? (
+                          <div className="space-y-6">
+                            <div>
+                              <div className="mb-4 flex items-center gap-2">
+                                <CheckCircle2 className="h-5 w-5 text-primary" />
+                                <h3 className="font-display text-lg font-semibold text-foreground">
+                                  Key Capabilities
+                                </h3>
+                              </div>
+                              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                {study.capabilities.map((item) => (
+                                  <div
+                                    key={item}
+                                    className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
+                                  >
+                                    {item}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
 
-                      <div className="mt-5">
-                        <h3 className="font-display text-sm font-semibold text-foreground">
-                          Solution
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                          {study.solution}
-                        </p>
-                      </div>
+                            <div>
+                              <div className="mb-4 flex items-center gap-2">
+                                <Layers3 className="h-5 w-5 text-primary" />
+                                <h3 className="font-display text-lg font-semibold text-foreground">
+                                  Technologies Used
+                                </h3>
+                              </div>
+                              <div className="space-y-4">
+                                {study.projectTechSections?.map((section) => (
+                                  <div
+                                    key={section.title}
+                                    className="rounded-md border border-border bg-card p-4"
+                                  >
+                                    <h4 className="font-display text-sm font-semibold text-foreground">
+                                      {section.title}
+                                    </h4>
+                                    <div className="mt-3 flex flex-wrap gap-2">
+                                      {section.items.map((item) => (
+                                        <span
+                                          key={item}
+                                          className="rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-sm text-muted-foreground"
+                                        >
+                                          {item}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="space-y-6">
+                            <div>
+                              <div className="mb-4 flex items-center gap-2">
+                                <CheckCircle2 className="h-5 w-5 text-primary" />
+                                <h3 className="font-display text-lg font-semibold text-foreground">
+                                  Key Capabilities
+                                </h3>
+                              </div>
+                              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                {study.capabilities.map((item) => (
+                                  <div
+                                    key={item}
+                                    className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
+                                  >
+                                    {item}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
 
-                      {study.slug === "local-wallah" &&
-                        "projectNames" in study &&
-                        study.projectNames && (
-                          <div className="mt-6">
-                            <h3 className="font-display text-sm font-semibold text-foreground">
-                              Projects
-                            </h3>
-
-                            <div className="mt-3 space-y-3">
-                              {study.projectNames.map((projectName) => (
-                                <div
-                                  key={projectName}
-                                  className="rounded-md border border-border bg-secondary/20 p-4"
-                                >
-                                  <p className="text-sm font-medium text-foreground">
-                                    {projectName}
-                                  </p>
-                                </div>
-                              ))}
+                            <div>
+                              <div className="mb-4 flex items-center gap-2">
+                                <Layers3 className="h-5 w-5 text-primary" />
+                                <h3 className="font-display text-lg font-semibold text-foreground">
+                                  Technologies Used
+                                </h3>
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                {study.technologies.map((tech) => (
+                                  <span
+                                    key={tech}
+                                    className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         )}
-                    </div>
-
-                    <div className="border-t border-border bg-secondary/30 p-8 md:p-10 lg:border-l lg:border-t-0">
-                      {study.slug === "local-wallah" &&
-                      "projectTechSections" in study ? (
-                        <div className="space-y-6">
-                          <div>
-                            <div className="mb-4 flex items-center gap-2">
-                              <CheckCircle2 className="h-5 w-5 text-primary" />
-                              <h3 className="font-display text-lg font-semibold text-foreground">
-                                Key Capabilities
-                              </h3>
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                              {study.capabilities.map((item) => (
-                                <div
-                                  key={item}
-                                  className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
-                                >
-                                  {item}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          <div>
-                            <div className="mb-4 flex items-center gap-2">
-                              <Layers3 className="h-5 w-5 text-primary" />
-                              <h3 className="font-display text-lg font-semibold text-foreground">
-                                Technologies Used
-                              </h3>
-                            </div>
-
-                            <div className="space-y-4">
-                              {study.projectTechSections?.map((section) => (
-                                <div
-                                  key={section.title}
-                                  className="rounded-md border border-border bg-card p-4"
-                                >
-                                  <h4 className="font-display text-sm font-semibold text-foreground">
-                                    {section.title}
-                                  </h4>
-
-                                  <div className="mt-3 flex flex-wrap gap-2">
-                                    {section.items.map((item) => (
-                                      <span
-                                        key={item}
-                                        className="rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-sm text-muted-foreground"
-                                      >
-                                        {item}
-                                      </span>
-                                    ))}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="space-y-6">
-                          <div>
-                            <div className="mb-4 flex items-center gap-2">
-                              <CheckCircle2 className="h-5 w-5 text-primary" />
-                              <h3 className="font-display text-lg font-semibold text-foreground">
-                                Key Capabilities
-                              </h3>
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                              {study.capabilities.map((item) => (
-                                <div
-                                  key={item}
-                                  className="rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-transform duration-200 hover:-translate-y-1"
-                                >
-                                  {item}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          <div>
-                            <div className="mb-4 flex items-center gap-2">
-                              <Layers3 className="h-5 w-5 text-primary" />
-                              <h3 className="font-display text-lg font-semibold text-foreground">
-                                Technologies Used
-                              </h3>
-                            </div>
-
-                            <div className="flex flex-wrap gap-2">
-                              {study.technologies.map((tech) => (
-                                <span
-                                  key={tech}
-                                  className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </article>
+                      </div>
+                    </article>
+                  </CaseStudyCardWrapper>
+                </div>
               ))}
             </div>
           </div>
