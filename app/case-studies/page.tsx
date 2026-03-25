@@ -5,7 +5,7 @@ import { HexagonBackground } from "@/components/hexagon-background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTASection } from "@/components/sections/cta";
-import { Clock, Users, CheckCircle2, Layers3, Globe, ArrowRight } from "lucide-react";
+import { Clock, Users, CheckCircle2, Layers3 } from "lucide-react";
 
 // --- Types ---
 interface ProjectTechSection {
@@ -96,13 +96,13 @@ const caseStudies: CaseStudy[] = [
     industry: "Internal SaaS Platform",
     duration: "Ongoing",
     team: "DaemonHive Team",
-    description: "StashBlog is a multi-tenant SaaS platform that allows businesses to create portfolio websites, showcase product catalogs, and manage their digital presence with custom domains[cite: 14].",
-    challenge: "Many businesses needed a simple way to create and manage professional websites without technical knowledge[cite: 16].",
-    solution: "DaemonHive developed a scalable SaaS platform with an easy dashboard where businesses can manage products, content, and website layouts[cite: 18].",
+    description: "StashBlog is a multi-tenant SaaS platform that allows businesses to create portfolio websites, showcase product catalogs, and manage their digital presence with custom domains.",
+    challenge: "Many businesses needed a simple way to create and manage professional websites without technical knowledge.",
+    solution: "DaemonHive developed a scalable SaaS platform with an easy dashboard where businesses can manage products, content, and website layouts.",
     businessesPowered: [
       "Garima International", "Global Craft Innovations", "Spruce Exports", 
       "Af International Inc.", "Agf Creations", "Divine Aura Jewels"
-    ], // Added from source [cite: 29, 30, 31, 32, 33, 34]
+    ],
     capabilities: [
       "Multi-tenant SaaS platform", "Portfolio website builder", "Product catalog management",
       "Custom domain support", "Easy content management", "Scalable architecture"
@@ -116,29 +116,29 @@ const caseStudies: CaseStudy[] = [
     industry: "Marketplace & Food Delivery",
     duration: "Ongoing",
     team: "DaemonHive Team",
-    description: "Local Wallah is a hyperlocal platform that connects merchants and customers through marketplace services and food delivery solutions[cite: 39].",
-    challenge: "Local businesses needed a digital platform to reach nearby customers and manage online orders[cite: 41].",
-    solution: "DaemonHive built a marketplace and food ordering system with real-time notifications and mobile support[cite: 43].",
+    description: "Local Wallah is a hyperlocal platform that connects merchants and customers through marketplace services and food delivery solutions.",
+    challenge: "Local businesses needed a digital platform to reach nearby customers and manage online orders.",
+    solution: "DaemonHive built a marketplace and food ordering system with real-time notifications and mobile support.",
     capabilities: [
       "Merchant marketplace", "Online food ordering system", "Customer notifications",
       "Secure authentication", "Order management system", "Mobile application support"
     ],
-    technologies: ["Node.js", "React.js", "MongoDB", "Redux", "Firebase Cloud Messaging", "Google OAuth", "MSG91", "Kotlin", "Java"],
+    technologies: [], // Empty because we are using projectTechSections instead
     projectTechSections: [
       {
         title: "Merchant Marketplace",
-        description: "A centralized hub for local vendors to list products, manage inventory, and track sales performance with a dedicated dashboard[cite: 53].",
-        items: ["Redux", "Firebase Cloud Messaging (FCM)"]
+        description: "A centralized hub for local vendors to list products and track performance.",
+        items: ["Node.js", "React.js", "MongoDB", "Redux"]
       },
       {
         title: "Food Delivery",
-        description: "A specialized delivery system featuring real-time tracking, Google OAuth security, and VI DLT compliant telecom integration[cite: 57, 63].",
-        items: ["Redux", "Google OAuth", "MSG91 SMS Integration", "VI DLT Integration"]
+        description: "Specialized delivery system with real-time tracking and VI DLT integration.",
+        items: ["Node.js", "Express.js", "Google OAuth", "MSG91"]
       },
       {
         title: "LocalWallah Android App",
-        description: "A high-performance native application designed for seamless customer browsing and real-time push notifications[cite: 64, 68].",
-        items: ["Kotlin", "Java", "Firebase Cloud Messaging (FCM)"]
+        description: "Native application designed for seamless customer browsing and push notifications.",
+        items: ["Kotlin", "Java", "Firebase Cloud Messaging"]
       }
     ],
   },
@@ -149,9 +149,9 @@ const caseStudies: CaseStudy[] = [
     industry: "E-Commerce Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "Urns of Dignity is an e-commerce website designed to sell memorial products through a secure online storefront[cite: 73].",
-    challenge: "The client needed a professional online store with secure payment options and reliable communication[cite: 75].",
-    solution: "DaemonHive developed a custom e-commerce platform with secure payments and automated email notifications[cite: 77].",
+    description: "Urns of Dignity is an e-commerce website designed to sell memorial products through a secure online storefront.",
+    challenge: "The client needed a professional online store with secure payment options and reliable communication.",
+    solution: "DaemonHive developed a custom e-commerce platform with secure payments and automated email notifications.",
     capabilities: ["Online product catalog", "Secure checkout process", "Email notifications", "Custom storefront design", "Cloud hosting", "SEO-friendly structure"],
     technologies: ["Node.js", "React.js", "Express.js", "MongoDB", "AWS SES", "AWS SNS", "PayPal", "Stripe"],
   },
@@ -162,9 +162,9 @@ const caseStudies: CaseStudy[] = [
     industry: "Portfolio Website",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "Mopwna Cling is a portfolio website created to present brand identity and showcase services online[cite: 91].",
-    challenge: "The client needed a clean and professional website to improve their online presence[cite: 93].",
-    solution: "DaemonHive developed a modern and responsive portfolio website optimized for performance and user experience[cite: 95].",
+    description: "Mopwna Cling is a portfolio website created to present brand identity and showcase services online.",
+    challenge: "The client needed a clean and professional website to improve their online presence.",
+    solution: "DaemonHive developed a modern and responsive portfolio website optimized for performance and user experience.",
     capabilities: ["Responsive design", "Brand-focused layout", "Service showcase", "Mobile-friendly interface", "Fast loading", "SEO optimized"],
     technologies: ["React.js", "HTML5", "CSS", "SCSS"],
   },
@@ -175,9 +175,9 @@ const caseStudies: CaseStudy[] = [
     industry: "Community Networking",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "BCN is a community platform that allows members to connect, participate in events, and discover services within their community[cite: 109].",
-    challenge: "The client needed a digital platform to manage community interaction and events[cite: 111].",
-    solution: "DaemonHive developed a secure platform with communication tools, payment integration, and location-based features[cite: 113].",
+    description: "BCN is a community platform that allows members to connect, participate in events, and discover services within their community.",
+    challenge: "The client needed a digital platform to manage community interaction and events.",
+    solution: "DaemonHive developed a secure platform with communication tools, payment integration, and location-based features.",
     capabilities: ["Community networking", "Event features", "Donation support", "Communication tools", "Location services", "Payment integration"],
     technologies: ["Node.js", "React.js", "MongoDB", "Redux", "Razorpay", "Google Maps", "WhatsApp Integration"],
   },
@@ -188,9 +188,9 @@ const caseStudies: CaseStudy[] = [
     industry: "E-Commerce Platform",
     duration: "Project Based",
     team: "DaemonHive Team",
-    description: "Yourganicx Nutrition is an e-commerce website built for a nutrition brand selling health products[cite: 126].",
-    challenge: "The client required an online store to showcase products and handle secure payments[cite: 128].",
-    solution: "DaemonHive built a clean and easy-to-use e-commerce website with payment integration[cite: 130].",
+    description: "Yourganicx Nutrition is an e-commerce website built for a nutrition brand selling health products.",
+    challenge: "The client required an online store to showcase products and handle secure payments.",
+    solution: "DaemonHive built a clean and easy-to-use e-commerce website with payment integration.",
     capabilities: ["Product catalog", "Secure payment gateway", "Mobile responsive", "Simple checkout", "Product information", "SEO-friendly"],
     technologies: ["PHP", "HTML5", "CSS", "JavaScript", "MySQL", "Razorpay"],
   },
@@ -198,7 +198,7 @@ const caseStudies: CaseStudy[] = [
 
 const otherClients = [
   "Sher Sweets", "Benelli Keeway", "Bansal Nursing Home", "Cosmedicaa", "Dev Primus", "Preka Ent"
-]; // Added from source [cite: 144, 145, 146, 147, 148, 149]
+];
 
 export default function CaseStudiesPage() {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
@@ -232,10 +232,10 @@ export default function CaseStudiesPage() {
         {/* Header Section */}
         <section className="pb-16 pt-32">
           <div className="mx-auto max-w-7xl px-6">
-            <span className="font-display text-sm font-semibold uppercase tracking-widest text-primary">Our Work [cite: 4]</span>
-            <h1 className="mt-4 font-display text-5xl font-bold tracking-tight text-foreground md:text-6xl">Case Studies [cite: 6]</h1>
+            <span className="font-display text-sm font-semibold uppercase tracking-widest text-primary">Our Work</span>
+            <h1 className="mt-4 font-display text-5xl font-bold tracking-tight text-foreground md:text-6xl">Case Studies</h1>
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              Real projects with measurable outcomes. This section highlights how DaemonHive Technologies has helped companies across different industries modernize their technology[cite: 8].
+              Real projects with measurable outcomes. This section highlights how DaemonHive Technologies has helped companies across different industries modernize their technology.
             </p>
           </div>
         </section>
@@ -253,6 +253,7 @@ export default function CaseStudiesPage() {
                 >
                   <CaseStudyCardWrapper>
                     <article className="grid lg:grid-cols-2">
+                      {/* LEFT COLUMN */}
                       <div className="p-8 md:p-10">
                         <div className="mb-4 flex flex-wrap items-center gap-3">
                           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{study.industry}</span>
@@ -268,7 +269,7 @@ export default function CaseStudiesPage() {
                           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{study.description}</p>
                           {study.businessesPowered && (
                             <div className="mt-4 p-4 rounded-md border border-border bg-secondary/10">
-                              <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Businesses Powered by StashBlog [cite: 28]</h4>
+                              <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Businesses Powered by StashBlog</h4>
                               <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                                 {study.businessesPowered.map((biz) => (
                                   <div key={biz} className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -288,9 +289,23 @@ export default function CaseStudiesPage() {
                         <div className="mt-5">
                           <h3 className="font-display text-sm font-semibold text-foreground">Solution</h3>
                           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{study.solution}</p>
+                          
+                          {/* Left column now only shows descriptions for Local Wallah projects */}
+                          {study.slug === "local-wallah" && study.projectTechSections && (
+                            <div className="mt-6 space-y-4">
+                              <h3 className="font-display text-sm font-semibold text-foreground">Core Projects</h3>
+                              {study.projectTechSections.map((section) => (
+                                <div key={section.title} className="rounded-md border border-border bg-card p-4">
+                                  <h4 className="font-display text-sm font-semibold text-foreground">{section.title}</h4>
+                                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{section.description}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
 
+                      {/* RIGHT COLUMN */}
                       <div className="border-t border-border bg-secondary/30 p-8 md:p-10 lg:border-l lg:border-t-0">
                         <div className="space-y-8">
                           <div>
@@ -311,18 +326,19 @@ export default function CaseStudiesPage() {
                             <div className="mb-4 flex items-center gap-2">
                               <Layers3 className="h-5 w-5 text-primary" />
                               <h3 className="font-display text-lg font-semibold text-foreground">
-                                {study.projectTechSections ? "Core Projects" : "Technologies Used"}
+                                {study.projectTechSections ? "Project Technologies" : "Technologies Used"}
                               </h3>
                             </div>
+                            
+                            {/* If it's Local Wallah, show separate tech stacks per sub-project */}
                             {study.projectTechSections ? (
                               <div className="space-y-4">
                                 {study.projectTechSections.map((section) => (
-                                  <div key={section.title} className="rounded-md border border-border bg-card p-4">
-                                    <h4 className="font-display text-sm font-semibold text-foreground">{section.title}</h4>
-                                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{section.description}</p>
-                                    <div className="mt-3 flex flex-wrap gap-2">
+                                  <div key={section.title} className="rounded-md border border-border bg-card/50 p-4">
+                                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">{section.title}</h4>
+                                    <div className="flex flex-wrap gap-2">
                                       {section.items.map((tech) => (
-                                        <span key={tech} className="rounded-full border border-border bg-secondary/40 px-2.5 py-1 text-[10px] text-muted-foreground">
+                                        <span key={tech} className="rounded-full border border-border bg-secondary/40 px-2.5 py-1 text-xs text-muted-foreground">
                                           {tech}
                                         </span>
                                       ))}
@@ -350,68 +366,60 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        {/* Other Clients Section - Added from source [cite: 140] */}
-      {/* Other Clients Section with 3D Animation */}
-<section className="pb-32">
-  <div className="mx-auto max-w-7xl px-6">
-    <CaseStudyCardWrapper>
-      <div className="bg-card/50 p-8 md:p-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
-          
-          {/* Left Content Column */}
-          <div className="max-w-xl">
-            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              Local Partnerships
-            </span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-foreground">
-              Other Clients We&apos;ve Worked With [cite: 140]
-            </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              DaemonHive has created digital link platforms for several local businesses to centralize their online presence, social media, and Google Reviews. [cite: 141, 142]
-            </p>
-            
-            {/* Typical Features List from Doc */}
-            <div className="mt-8 space-y-3">
-              <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                Typical Features [cite: 150, 162]
-              </h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {[
-                  "Social Media Centralization",
-                  "Google Reviews Integration",
-                  "Contact & Directions",
-                  "Product/Website Links"
-                ].map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    {feature} [cite: 151-154, 163-166]
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        {/* Other Clients Section */}
+        <section className="pb-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <CaseStudyCardWrapper>
+              <div className="bg-card/50 p-8 md:p-12">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+                  <div className="max-w-xl">
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                      Local Partnerships
+                    </span>
+                    <h2 className="mt-4 font-display text-3xl font-bold text-foreground">
+                      Other Clients We&apos;ve Worked With
+                    </h2>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      DaemonHive has created digital link platforms for several local businesses to centralize their online presence, social media, and Google Reviews.
+                    </p>
+                    <div className="mt-8 space-y-3">
+                      <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+                        Typical Features
+                      </h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {[
+                          "Social Media Centralization",
+                          "Google Reviews Integration",
+                          "Contact & Directions",
+                          "Product/Website Links"
+                        ].map((feature) => (
+                          <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <CheckCircle2 className="h-4 w-4 text-primary" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
 
-          {/* Right Client Grid - Uniform & Balanced */}
-          <div className="grid grid-cols-2 gap-4 w-full lg:max-w-md">
-            {otherClients.map((client) => (
-              <div 
-                key={client} 
-                className="group relative overflow-hidden rounded-lg border border-border bg-secondary/20 px-4 py-6 text-center transition-all duration-300 hover:border-primary/50 hover:bg-secondary/30"
-              >
-                <div className="relative z-10 text-sm font-bold text-foreground">
-                  {client} 
+                  <div className="grid grid-cols-2 gap-4 w-full lg:max-w-md">
+                    {otherClients.map((client) => (
+                      <div 
+                        key={client} 
+                        className="group relative overflow-hidden rounded-lg border border-border bg-secondary/20 px-4 py-6 text-center transition-all duration-300 hover:border-primary/50 hover:bg-secondary/30"
+                      >
+                        <div className="relative z-10 text-sm font-bold text-foreground">
+                          {client} 
+                        </div>
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/5 to-transparent transition-transform duration-500 group-hover:translate-x-0" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                {/* Subtle hover accent */}
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-primary/5 to-transparent transition-transform duration-500 group-hover:translate-x-0" />
               </div>
-            ))}
+            </CaseStudyCardWrapper>
           </div>
-
-        </div>
-      </div>
-    </CaseStudyCardWrapper>
-  </div>
-</section>
+        </section>
 
         <CTASection />
       </main>
